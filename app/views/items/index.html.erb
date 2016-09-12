@@ -1,0 +1,7 @@
+<h1>ALL THE ITEMS!!!!!!!!!</h1>
+
+
+<% @items.each do |item| %>
+<%= image_tag(item.image) %>
+<%= item.title %>
+<% end %>
