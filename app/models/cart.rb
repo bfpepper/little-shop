@@ -9,6 +9,10 @@ class Cart
     contents[item_id.to_s] ||= 0
     contents[item_id.to_s] += 1
   end
+  
+  def remove_item(item_id)
+    contents.delete(item_id.to_s)
+  end
 
   def total
     contents.reduce(0) do |total, (item_id, quantity)|
