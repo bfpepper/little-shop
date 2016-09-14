@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.feature "A visitor visits a category page" do
   scenario "they see all items assigned to that category" do
-    category = Category.create(name:"decrepit")
-    category.items.create(title:"Old Shoe", description:"Found in back stairwell", price:"94.00", image:"http://imgur.com/oldshoe.jpg")
-    category.items.create(title:"Rotting bike tire", description:"Found in back stairwell", price:"94.00", image:"http://imgur.com/oldshoe.jpg")
+    category = create(:category_with_items, items_count: 2)
+    item_1 = category.items.first.title
+    item_2 = category.items.last.title
 
-    visit '/decrepit'
+    visit "/#{category.name}"
 
-    expect(page).to have_content("Old Shoe")
-    expect(page).to have_content("Rotting bike tire")
+    expect(page).to have_content(item_1)
+    expect(page).to have_content(item_2)
   end
 end
 # Background: I have two categories with titles and each has two different items assigned
