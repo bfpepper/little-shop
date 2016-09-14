@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_cart
-    @cart = Cart::Item.new(session[:cart])
+    @cart = Cart.new(session[:cart])
   end
 end

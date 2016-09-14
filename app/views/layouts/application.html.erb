@@ -17,6 +17,7 @@
     <% end %>
     </p>
     <%= link_to "View Cart", cart_path %>
+    <%= sanitize(flash[:notice]) %>
     <%= yield %>
   </body>
 </html>

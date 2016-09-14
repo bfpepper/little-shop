@@ -1,9 +1,10 @@
 <h1>Your Cart</h1>
 
-<ul>
+<ul id="cart-contents">
   <% @items.each do |item| %>
     <li>
       <%= image_tag item.image, width: 100 %> <%= item.title %> | $<%= item.price %> <%= item.description %>
+      <%= button_to "Remove", cart_path(item_id: item.id), method: 'delete' %> 
     </li>
   <% end %>
 </ul>

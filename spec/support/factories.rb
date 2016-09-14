@@ -12,15 +12,16 @@ FactoryGirl.define do
       end
     end
   end
-  
+
   sequence :name do |n|
     "category_#{n}"
   end
-  
+
   factory :item do
     category
     title
     description 'An item'
+    price 94.00
     image 'http://imgur.com/oldshoe'
   end
 

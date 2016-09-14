@@ -1,4 +1,4 @@
-class Cart::Item
+class Cart
   attr_reader :contents
 
   def initialize(initial_contents)
@@ -8,6 +8,10 @@ class Cart::Item
   def add_item(item_id)
     contents[item_id.to_s] ||= 0
     contents[item_id.to_s] += 1
+  end
+  
+  def remove_item(item_id)
+    contents.delete(item_id.to_s)
   end
 
   def total
