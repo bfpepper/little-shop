@@ -3,7 +3,7 @@
 <p><%= image_tag "http://i2.kym-cdn.com/photos/images/original/000/187/320/6a1.png" %></p>
 
 <% @items.each do |item| %>
-<%= image_tag(item.image) %>
+<%= image_tag item.image %>
 <%= item.title %>
-<%= button_to "Add to Cart", cart_items_path(item) %>
+<%= button_to "Add to Cart", cart_items_path(item_id: item.id) %>
 <% end %>

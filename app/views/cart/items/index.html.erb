@@ -3,7 +3,9 @@
 <ul>
   <% @items.each do |item| %>
     <li>
-      <%= item %>
+      <%= image_tag item.image, width: 100 %> <%= item.title %> <%= item.description %> | <%= item.price %>
     </li>
   <% end %>
 </ul>
+
+Total: <%= number_to_currency(@cart.total) %>

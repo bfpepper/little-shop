@@ -23,6 +23,6 @@ RSpec.feature "Visitor can add items to cart" do
     expect(page).to have_content(item_description)
     expect(page).to have_css("img[src=\"#{item_image}\"]")
     #   And there should be a "total" price for the cart that should be the sum of all items in the cart
-    expect(page).to have_content("Total: $#{item_price}"")
+    expect(page).to have_content("Total: $#{item_price}")
   end
 end
