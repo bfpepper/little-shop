@@ -1,16 +1,16 @@
-class Cart::ItemsController < ApplicationController
-  include ActionView::Helpers::TextHelper
+class CartController < ApplicationController
+  # include ActionView::Helpers::TextHelper
 
-  def index
+  def show
     @items = @cart.contained_items
   end
 
-  def create
+  def update
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
     # flash[:notice] = "You have #{pluralize(x, item.title)} in your cart"
-    redirect_to cart_items_path
+    redirect_to cart_path
   end
 
 #   def create

@@ -5,5 +5,5 @@
 <% @items.each do |item| %>
 <%= image_tag item.image %>
 <%= item.title %>
-<%= button_to "Add to Cart", cart_items_path(item_id: item.id) %>
+<%= button_to "Add to Cart", cart_path(item_id: item.id) %>
 <% end %>

@@ -1,4 +1,4 @@
-class Cart::Item
+class Cart
   attr_reader :contents
 
   def initialize(initial_contents)
