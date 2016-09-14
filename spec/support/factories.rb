@@ -29,6 +29,17 @@ FactoryGirl.define do
     "item_#{n}"
   end
 
+  factory :user do
+    username
+    name "pete"
+    password "password"
+    password_confirmation "password"
+  end
+
+  sequence :username do |n|
+    "user_#{n}"
+  end
+
   factory :order do |n|
     status "completed"
 
@@ -43,5 +54,4 @@ FactoryGirl.define do
     end
   end
     
-
 end
