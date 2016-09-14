@@ -6,7 +6,6 @@ RSpec.feature "A visitor removes items from a cart" do
     
     visit '/cart'
     visit items_path
-    expect(page).to have_button("Add to Cart")
     click_on "Add to Cart"
     click_on "View Cart"
 
