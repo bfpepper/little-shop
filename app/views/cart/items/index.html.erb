@@ -1,0 +1,11 @@
+<h1>Your Cart</h1>
+
+<ul>
+  <% @items.each do |item| %>
+    <li>
+      <%= image_tag item.image, width: 100 %> <%= item.title %> | $<%= item.price %> <%= item.description %>
+    </li>
+  <% end %>
+</ul>
+
+Total: <%= number_to_currency(@cart.total) %>
