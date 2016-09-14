@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
+  root to: "home#show"
+
+  resources :users, only: [:new, :create, :show]
+
   resources :items, only: [:index]
 
-  namespace :cart do
-    resources :items, only: [:create, :index]
-  end
+  get '/dashboard', to: "users#show"
 
-  # get '/cart', to: "cart#show"
-  # post '/cart', to: "cart#create"
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   get '/:category', to: "categories#show"
 

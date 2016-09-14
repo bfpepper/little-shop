@@ -9,3 +9,4 @@ RSpec.feature "Visitor can see all items" do
     expect(page).to have_content(item.title)
   end
 end
+>>>>>>> development
