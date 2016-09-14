@@ -2,11 +2,12 @@ class Cart::ItemsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    # @items = Items.
+    @items = @cart.contained_items
   end
 
   def create
     item = Item.find(params[:item_id])
+    @cart.add_item(item_id)
     session[:cart] ||= {}
     session[:cart][item.id] ||= 0
     session[:cart][item.id] += 1
