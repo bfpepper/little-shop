@@ -17,12 +17,12 @@ RSpec.feature "Visitor can add items to cart" do
     #   And I click a link or button to view cart
     click_on "View Cart"
     #   And my current path should be "/cart"
-    expect(page).to have_current_path_path(cart_items)
+    expect(page).to have_current_path(cart_items_path)
     #   And I should see a small image, title, description and price for the item I just added
-    expect(page).to have_content("#{item_title} | #{item_price}")
+    expect(page).to have_content("#{item_title} | $#{item_price}")
     expect(page).to have_content(item_description)
     expect(page).to have_css("img[src=\"#{item_image}\"]")
     #   And there should be a "total" price for the cart that should be the sum of all items in the cart
-    expect(page).to have_content("Total: $94.00")
+    expect(page).to have_content("Total: $#{item_price}"")
   end
 end
