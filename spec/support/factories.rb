@@ -28,4 +28,16 @@ FactoryGirl.define do
   sequence :title do |n|
     "item_#{n}"
   end
+
+  factory :user do
+    username
+    name "pete"
+    password "password"
+    password_confirmation "password"
+  end
+
+  sequence :username do |n|
+    "user_#{n}"
+  end
+
 end
