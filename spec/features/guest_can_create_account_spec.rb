@@ -13,15 +13,15 @@ RSpec.feature "Visitor can get to new account page" do
     click_link "Login"
 
     # And I should be on the "/login" page
-    expect(current_path).to eq(new_user_path)
+    expect(current_path).to eq(login_path)
 
     # I should see a place to insert my credentials to login
-    # And I should see a link to "Create Account"
     find("input[placeholder='Username']")
     find("input[placeholder='Password']")
-    find("input[placeholder='Password Confirm']")
 
-    page.should have_selector("input[type=submit][value='Create Account']")
+    # And I should see a link to "Create Account"
+    expect(page).to have_content("Create Account")
+    # page.should have_selector("input[type=submit][value='Create Account']")
   end
 
   scenario "Visitor can create a new account" do
@@ -42,16 +42,16 @@ RSpec.feature "Visitor can get to new account page" do
     click_button "Create Account"
 
     # Then my current page should be "/dashboard"
-    expect(current_path).to eq("/dashboard")
+    expect(current_path).to eq(dashboard_path)
 
     # And I should see a message in the navbar that says "Logged in as SOME_USER"
     expect(page).to have_content("Logged in as Cory")
 
     # And I should see my profile information
-    expect(page).to have_content("Welcome Cory")
+    expect(page).to have_content("Name: Corey")
 
     # And I should not see a link for "Login"
-    expect(page).to not_have_content("Login")
+    expect(page).to_not have_content("Login")
 
     # And I should see a link for "Logout"
     expect(page).to have_content("Logout")
