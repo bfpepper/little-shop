@@ -7,10 +7,8 @@ class Cart::ItemsController < ApplicationController
 
   def create
     item = Item.find(params[:item_id])
-    @cart.add_item(item_id)
-    session[:cart] ||= {}
-    session[:cart][item.id] ||= 0
-    session[:cart][item.id] += 1
+    @cart.add_item(item.id)
+    session[:cart] = @cart.contents
     # flash[:notice] = "You have #{pluralize(x, item.title)} in your cart"
     redirect_to cart_items_path
   end
