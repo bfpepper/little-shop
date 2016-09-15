@@ -9,7 +9,7 @@ class Cart
     contents[item_id.to_s] ||= 0
     contents[item_id.to_s] += 1
   end
-  
+
   def remove_item(item_id)
     contents.delete(item_id.to_s)
   end
@@ -21,10 +21,14 @@ class Cart
       return total
     end
   end
+  
+  def change_quantity(item_id, quantity)
+    contents[item_id.to_s] += quantity.to_i
+  end
 
   def contained_items
     contents.map do |item_id, quantity|
-      Item.find(item_id)
-    end
+      [Item.find(item_id), quantity]
+    end.to_h
   end
 end

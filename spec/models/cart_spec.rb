@@ -5,7 +5,7 @@ RSpec.describe Cart, type: :model do
     cart = Cart.new(nil)
     cart.add_item(2)
 
-    expect(cart.contents).to eq({"2" => 1}) 
+    expect(cart.contents).to eq({"2" => 1})
   end
 
   it "can find a total" do
@@ -19,7 +19,7 @@ RSpec.describe Cart, type: :model do
     item = create(:item)
     cart = Cart.new({item.id => 1})
 
-    expect(cart.contained_items).to eq([item])
+    expect(cart.contained_items).to eq({item => 1})
   end
 
   it "can delete an item" do
@@ -30,4 +30,3 @@ RSpec.describe Cart, type: :model do
     expect(cart.contents).to eq({})
   end
 end
-  
