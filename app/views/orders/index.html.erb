@@ -1,5 +1,5 @@
 <ul>
-  <%= @user.orders.each do |order| %>
+  <%= current_user.orders.each do |order| %>
     <li>Order <%= order.id %>: <%= number_to_currency(order.price) %></li>
   <% end %>
 </ul>
