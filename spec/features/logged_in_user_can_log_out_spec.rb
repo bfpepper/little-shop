@@ -5,6 +5,7 @@ RSpec.feature 'Logged in user logs out' do
     user = create(:user)
     # As a logged in user
     visit '/'
+    click_on 'Login'
     fill_in 'Username', with: user.username
     fill_in 'Password', with: user.password
     click_on 'Save Session'
