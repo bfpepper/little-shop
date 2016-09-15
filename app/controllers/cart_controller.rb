@@ -5,7 +5,7 @@ class CartController < ApplicationController
     @items = @cart.contained_items
   end
 
-  def update
+  def new
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
@@ -21,16 +21,8 @@ class CartController < ApplicationController
     redirect_to cart_path
   end
 
-#   def create
-#   politician = Politician.find(params[:politician_id])
-#   @cart.add_politician(politician.id)
-#
-#   session[:cart] = @cart.contents
-#   redirect_to politicians_path
-# end
-#
-# def index
-#   @politicians = @cart.contained_politicians
-# end
-
+  def update
+    session[:cart][params[:item_id]] += params[:quantity_change].to_i
+    redirect_to cart_path
+  end
 end
