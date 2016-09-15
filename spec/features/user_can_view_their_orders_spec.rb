@@ -5,8 +5,10 @@ RSpec.feature "A user views their orders" do
     order_1 = user.orders.first
     order_2 = user.orders.last
     
+    visit '/'
     click_on "Login"
-    fill_in "Username", with: user.username
+
+    find("input[placeholder='Username']").set user.username
     fill_in "Password", with: user.password
 
     visit '/orders'
