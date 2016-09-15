@@ -38,6 +38,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'simplecov', require: false, group: :test
+  gem "awesome_print"
 end
 
 group :production do
