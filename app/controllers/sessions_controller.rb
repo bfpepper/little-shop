@@ -9,9 +9,9 @@ class SessionsController < ApplicationController
     # if user.admin? && user.authenticate([:session][:password])
     #   session[:user_id] = user.id
     #   redirect_to '/admin'
-    if user && user.authenticate([:session][:password])
+    if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      redirect_to user
+      redirect_to dashboard_path(id: user.id)
     else
       render :new
     end
