@@ -34,6 +34,17 @@ FactoryGirl.define do
     name "pete"
     password "password"
     password_confirmation "password"
+
+    factory :user_with_orders do
+      transient do
+        orders_count 3
+      end
+
+      after(:create) do |user, evaluator|
+        create_list(:order, evaluator.orders_count, user: user)
+      end
+    end
+
   end
 
   sequence :username do |n|
@@ -42,16 +53,7 @@ FactoryGirl.define do
 
   factory :order do |n|
     status "completed"
-
-    factory :order_with_items do
-      transient do
-        items_count 5
-      end
-
-      after(:create) do |order, evaluator|
-        create_list(:item, evaluator.items_count, orders: order)
-      end
-    end
+    user
   end
     
 end
