@@ -56,5 +56,4 @@ FactoryGirl.define do
     user
     price 100.00
   end
-    
 end
