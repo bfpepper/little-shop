@@ -11,7 +11,6 @@ RSpec.feature "A user views their orders" do
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
     click_on "Save Session"
-    expect(page).to have_current_path('/dashboard')
 
     visit '/orders'
 
