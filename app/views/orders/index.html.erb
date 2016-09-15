@@ -1,0 +1,5 @@
+<ul>
+  <%= @user.orders.each do |order| %>
+    <li>Order <%= order.id %>: <%= convert_to_currency(order.price) %></li>
+  <% end %>
+</ul>

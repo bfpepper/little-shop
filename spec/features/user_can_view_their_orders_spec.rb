@@ -8,13 +8,15 @@ RSpec.feature "A user views their orders" do
     visit '/'
     click_on "Login"
 
-    find("input[placeholder='Username']").set user.username
+    fill_in "Username", with: user.username
     fill_in "Password", with: user.password
+    click_on "Save Session"
+    expect(page).to have_current_path('/dashboard')
 
     visit '/orders'
 
-    expect(page).to have_content("Order #{order_1.id}: $:#{order_1.price}")
-    expect(page).to have_content("Order #{order_2.id}: $:#{order_2.price}")
+    expect(page).to have_content("Order #{order_1.id}: $#{order_1.price}")
+    expect(page).to have_content("Order #{order_2.id}: $#{order_2.price}")
     
   end
 
