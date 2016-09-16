@@ -15,7 +15,7 @@ RSpec.feature 'A visitor removes items from a cart' do
     # expect(page).to have_css(yep, its green)
     expect(page).to have_content("Successfully removed #{item.title}
                                   from your cart.")
-    expect(page).to have_link(item.title, item_path(item))
+    expect(page).to have_link(item.title, href: item_path(item))
 
     within '#cart-contents' do
       expect(page).not_to have_content(item.title)
