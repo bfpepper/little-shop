@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20160916163136) do
     t.text     "description"
     t.decimal  "price"
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "category_id"
     t.boolean  "retired",     default: false
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
@@ -56,8 +56,9 @@ ActiveRecord::Schema.define(version: 20160916163136) do
     t.string   "username"
     t.string   "password_digest"
     t.string   "password_confirmation"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "role",                  default: 0
   end
 
   add_foreign_key "items", "categories"
