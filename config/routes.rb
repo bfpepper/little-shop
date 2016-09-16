@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   put '/cart', to: 'cart#update'
 
   get '/:category', to: 'categories#show'
+
+  namespace :admin do
+    resources :dashboard, only: [:index]
+  end
 end
