@@ -13,7 +13,7 @@ RSpec.feature 'Admin can log in and see the admin dashboard' do
     click_on 'Save Session'
 
     expect(current_path).to eq(admin_dashboard_index_path)
-    expect(page).to have_content('Admin landing page')
+    expect(page).to have_content('Admin Dashboard')
 
   end
 end
