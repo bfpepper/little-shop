@@ -3,7 +3,6 @@ class User < ApplicationRecord
   has_many :orders
   validates :username, presence: true,
                        uniqueness: true
-                       
-  enum role: %w(default admin)
 
+  enum role: %w(default admin)
 end
