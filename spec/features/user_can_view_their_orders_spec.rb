@@ -26,10 +26,9 @@ RSpec.feature "A user views their orders" do
     order_1 = user.orders.first
     item_1 = create(:item)
     item_2 = create(:item)
-    OrderItem.create(order_id: order_1.id, item_id: item_1.id)
-    OrderItem.create(order_id: order_1.id, item_id: item_2.id)
-    OrderItem.create(order_id: order_1.id, item_id: item_1.id)
-byebug
+    order_item_1 = OrderItem.create!(order_id: order_1.id, item_id: item_1.id)
+    order_item_2 = OrderItem.create(order_id: order_1.id, item_id: item_2.id)
+    order_item_3 = OrderItem.create(order_id: order_1.id, item_id: item_1.id)
     # As an authenticated user
     visit login_path
 
@@ -45,8 +44,8 @@ byebug
     # And when I click that link
     click_link "View order", href: order_path(order_1)
     # Then I should see each item that was ordered with the quantity and line-item subtotals
-    expect(page).to have_content("#{quantity}: #{item_1.title} | #{item_1.price * quantity}")
-    expect(page).to have_content("#{quantity}: #{item_2.title} | #{item_2.price * quantity}")
+    expect(page).to have_content("#{2} #{item_1.title} #{item_1.price * 2}")
+    expect(page).to have_content("#{1} #{item_2.title} #{item_2.price}")
     # And I should see links to each item's show page
     expect(page).to have_link(item_1.title, href: item_path(item_1))
     expect(page).to have_link(item_2.title, href: item_path(item_2))
@@ -56,9 +55,7 @@ byebug
     expect(page).to have_content(order_1.price)
     # And I should see the date/time that the order was submitted
     expect(page).to have_content(order_1.created_at)
-    # If the order was completed or cancelled
-#???
-    # Then I should see a timestamp when the action took place
-#???
+    # If the order was completed or cancelled then I should see a timestamp when the action took place
+# expect(page).to_not have_content()
   end
 end

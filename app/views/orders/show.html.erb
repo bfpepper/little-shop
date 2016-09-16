@@ -1,1 +1,20 @@
 <h1>Order <%= @order.id %> Details</h1>
+
+<table>
+  <tr>
+    <th>Quantity</th>
+    <th>Item</th>
+    <th>Total</th>
+  </tr>
+  <% @order.contained_items.each do |item, quantity| %>
+    <tr>
+      <td><%= quantity %></td>
+      <td><%= link_to item.title, item_path(item) %></td>
+      <td><%= item.price * quantity %></td>
+    </tr>
+  <% end %>
+</table>
+
+Order Status: <%= @order.status %>
+Order Total: <%= @order.price %>
+Order submitted at: <%= @order.created_at %>

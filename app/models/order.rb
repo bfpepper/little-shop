@@ -3,4 +3,9 @@ class Order < ApplicationRecord
   has_many :items, through: :order_items
   belongs_to :user
 
+  def contained_items
+    self.items.each_with_object(Hash.new(0)) do |item, collection|
+      collection[item] += 1
+    end
+  end
 end

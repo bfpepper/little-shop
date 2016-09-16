@@ -52,7 +52,7 @@ FactoryGirl.define do
   end
 
   factory :order do |n|
-    status "completed"
+    status "ordered"
     user
     price 100.00
   end
