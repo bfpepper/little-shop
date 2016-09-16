@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   belongs_to :user
 
   def contained_items
-    self.items.each_with_object(Hash.new(0)) do |item, collection|
+    items.each_with_object(Hash.new(0)) do |item, collection|
       collection[item] += 1
     end
   end
