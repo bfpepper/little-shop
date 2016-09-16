@@ -1,21 +1,29 @@
 require 'rails_helper'
+<<<<<<< HEAD:spec/features/user_can_view_their_orders_spec.rb
 RSpec.feature "A user views their orders" do
   scenario "they see all orders belonging to them" do
+=======
+RSpec.feature 'A user views their orders' do
+  scenario 'they see all orders belonging to them' do
+>>>>>>> development:spec/features/user/user_can_view_their_orders_spec.rb
     user = create(:user_with_orders)
     order_1 = user.orders.first
     order_2 = user.orders.last
 
     visit login_path
 
-    fill_in "Username", with: user.username
-    fill_in "Password", with: user.password
-    click_on "Save Session"
+    fill_in 'Username', with: user.username
+    fill_in 'Password', with: user.password
+    click_on 'Save Session'
 
     visit '/orders'
 
     expect(page).to have_content("Order #{order_1.id}: $#{order_1.price}")
     expect(page).to have_content("Order #{order_2.id}: $#{order_2.price}")
+<<<<<<< HEAD:spec/features/user_can_view_their_orders_spec.rb
 
+=======
+>>>>>>> development:spec/features/user/user_can_view_their_orders_spec.rb
   end
 
   scenario "they don't see orders belonging to a different user" do

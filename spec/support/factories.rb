@@ -31,9 +31,9 @@ FactoryGirl.define do
 
   factory :user do
     username
-    name "pete"
-    password "password"
-    password_confirmation "password"
+    name 'pete'
+    password 'password'
+    password_confirmation 'password'
 
     factory :user_with_orders do
       transient do
@@ -44,15 +44,19 @@ FactoryGirl.define do
         create_list(:order, evaluator.orders_count, user: user)
       end
     end
-
   end
 
   sequence :username do |n|
     "user_#{n}"
   end
 
+<<<<<<< HEAD
   factory :order do |n|
     status "ordered"
+=======
+  factory :order do
+    status 'completed'
+>>>>>>> development
     user
     price 100.00
   end
