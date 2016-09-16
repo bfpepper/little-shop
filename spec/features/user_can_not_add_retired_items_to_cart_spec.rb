@@ -13,6 +13,7 @@ RSpec.feature 'User can not add retired items to cart' do
                        category_id: category.id)
     
     visit items_path
+    save_and_open_page
     
     
     
