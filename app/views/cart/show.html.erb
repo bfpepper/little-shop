@@ -1,0 +1,21 @@
+<h1>Your Cart</h1>
+
+<ul id="cart-contents">
+  <% @items.each do |item, quantity| %>
+    <li>
+      <%= image_tag item.image, width: 100 %> <%= item.title %> | $<%= item.price %> <%= item.description %>
+      <%= button_to "Remove", cart_path(item_id: item.id), method: 'delete' %>
+      Quantity: <%= quantity %>
+      <%= button_to "+", cart_path(item_id: item.id, quantity_change: 1), method: "put" %>
+      <%= button_to "-", cart_path(item_id: item.id, quantity_change: -1), method: "put" %>
+      Subtotal: <%= number_to_currency(item.price * quantity) %>
+    </li>
+  <% end %>
+</ul>
+
+Total: <%= number_to_currency(@cart.total) %>
+<% if current_user %>
+<%= button_to "Checkout"  %>
+<% else %>
+<%= link_to "Login or Create Account to Checkout", new_user_path %>
+<% end %>

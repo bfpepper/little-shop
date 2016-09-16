@@ -1,0 +1,8 @@
+<ul>
+  <%= current_user.orders.each do |order| %>
+    <li>
+      Order <%= order.id %>: <%= number_to_currency(order.price) %><br />
+      <%= link_to "View order", order_path(order) %>
+    </li>
+  <% end %>
+</ul>
