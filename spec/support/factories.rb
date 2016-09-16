@@ -50,13 +50,8 @@ FactoryGirl.define do
     "user_#{n}"
   end
 
-<<<<<<< HEAD
-  factory :order do |n|
-    status "ordered"
-=======
   factory :order do
-    status 'completed'
->>>>>>> development
+    status "ordered"
     user
     price 100.00
   end
