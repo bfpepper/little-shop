@@ -6,9 +6,11 @@
   <%= image_tag item.image %>
   <%= item.title %>
   <% if item.retired %>
-    <%= Item Retired %>
+     <p>Item Retired</p> 
   <% else %>
     <%= button_to "Add to Cart", cart_path(item_id: item.id) %>
   <% end %>
 <% end %>
+
+
 
