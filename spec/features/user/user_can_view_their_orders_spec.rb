@@ -25,9 +25,9 @@ RSpec.feature 'A user views their orders' do
     order_1 = user.orders.first
     item_1 = create(:item)
     item_2 = create(:item)
-    order_item_1 = OrderItem.create!(order_id: order_1.id, item_id: item_1.id)
-    order_item_2 = OrderItem.create(order_id: order_1.id, item_id: item_2.id)
-    order_item_3 = OrderItem.create(order_id: order_1.id, item_id: item_1.id)
+    OrderItem.create!(order_id: order_1.id, item_id: item_1.id)
+    OrderItem.create(order_id: order_1.id, item_id: item_2.id)
+    OrderItem.create(order_id: order_1.id, item_id: item_1.id)
 
     visit login_path
 
@@ -39,8 +39,8 @@ RSpec.feature 'A user views their orders' do
 
     click_link 'View order', href: order_path(order_1)
     
-    expect(page).to have_content("#{2} #{item_1.title} #{item_1.price * 2}")
-    expect(page).to have_content("#{1} #{item_2.title} #{item_2.price}")
+    expect(page).to have_content("2 #{item_1.title} #{item_1.price * 2}")
+    expect(page).to have_content("1 #{item_2.title} #{item_2.price}")
     expect(page).to have_link(item_1.title, href: item_path(item_1))
     expect(page).to have_link(item_2.title, href: item_path(item_2))
     expect(page).to have_content(order_1.status)
