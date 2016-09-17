@@ -20,7 +20,7 @@ RSpec.feature 'Authenticated user logs in' do
 
     expect(current_path).to eq('/dashboard')
     within '.navbar' do
-      expect(page).to have_content("Logged in as #{user.username}")
+    expect(page).to have_content("Logged in as #{user.username}")
     end
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Name: #{user.name}")
