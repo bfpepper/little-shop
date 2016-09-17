@@ -2,18 +2,18 @@
   <h1>Your Cart</h1>
 </div>
 
-<ul id="cart-contents">
+<table class="table-striped" id="cart-contents">
   <% @items.each do |item, quantity| %>
-    <li>
-      <%= image_tag item.image, width: 100 %> <%= item.title %> | $<%= item.price %> <%= item.description %>
-      <%= button_to "Remove", cart_path(item_id: item.id), method: 'delete' %>
-      Quantity: <%= quantity %>
-      <%= button_to "+", cart_path(item_id: item.id, quantity_change: 1), method: "put" %>
-      <%= button_to "-", cart_path(item_id: item.id, quantity_change: -1), method: "put" %>
-      Subtotal: <%= number_to_currency(item.price * quantity) %>
-    </li>
+    <tr>
+      <td><%= image_tag item.image, width: 100 %> <%= item.title %> | $<%= item.price %> <%= item.description %></td>
+      <td><%= button_to "Remove", cart_path(item_id: item.id), method: 'delete' %></td>
+      <td>Quantity: <%= quantity %></td>
+      <td><%= button_to "+", cart_path(item_id: item.id, quantity_change: 1), method: "put" %></td>
+      <td><%= button_to "-", cart_path(item_id: item.id, quantity_change: -1), method: "put" %></td>
+      <td>Subtotal: <%= number_to_currency(item.price * quantity) %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
 
 Total: <%= number_to_currency(@cart.total) %>
 <% if current_user %>
