@@ -1,8 +1,12 @@
-<ul>
+<div class="page-header">
+  All orders for <%= current_user.name %>
+</div>
+
+<table class="table-striped">
   <%= current_user.orders.each do |order| %>
-    <li>
-      Order <%= order.id %>: <%= number_to_currency(order.price) %><br />
-      <%= link_to "View order", order_path(order) %>
-    </li>
+    <tr>
+      <td>Order <%= order.id %>: <%= number_to_currency(order.price) %></td>
+      <td><%= link_to "View order", order_path(order) %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
