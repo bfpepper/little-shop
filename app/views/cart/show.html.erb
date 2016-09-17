@@ -2,14 +2,20 @@
   <h1>Your Cart</h1>
 </div>
 
-<table class="table-striped" id="cart-contents">
+<table class="table table-striped" id="cart-contents">
   <% @items.each do |item, quantity| %>
     <tr>
-      <td><%= image_tag item.image, width: 100 %> <%= item.title %> | $<%= item.price %> <%= item.description %></td>
-      <td><%= button_to "Remove", cart_path(item_id: item.id), method: 'delete' %></td>
-      <td>Quantity: <%= quantity %></td>
+      <td><%= image_tag item.image, width: 100 %></td>
+      <td><%= item.title %></td>
+      <td>$<%= item.price %></td>
+      <td><%= item.description.truncate_words(10) %></td>
       <td><%= button_to "+", cart_path(item_id: item.id, quantity_change: 1), method: "put" %></td>
       <td><%= button_to "-", cart_path(item_id: item.id, quantity_change: -1), method: "put" %></td>
+      <td>Quantity: <%= quantity %></td>
+    </tr>
+    <tr>
+      <td></td><td></td><td></td><td></td><td></td>
+      <td><%= button_to "Remove", cart_path(item_id: item.id), method: 'delete' %></td>
       <td>Subtotal: <%= number_to_currency(item.price * quantity) %></td>
     </tr>
   <% end %>

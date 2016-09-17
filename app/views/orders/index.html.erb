@@ -2,8 +2,8 @@
   All orders for <%= current_user.name %>
 </div>
 
-<table class="table-striped">
-  <%= current_user.orders.each do |order| %>
+<table class="table table-striped">
+  <% current_user.orders.each do |order| %>
     <tr>
       <td>Order <%= order.id %>: <%= number_to_currency(order.price) %></td>
       <td><%= link_to "View order", order_path(order) %></td>

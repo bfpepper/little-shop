@@ -2,18 +2,19 @@
   <h1>ALL THE ITEMS!!!!!!!!!</h1>
 </div>
 
-<p><%= image_tag "http://i2.kym-cdn.com/photos/images/original/000/187/320/6a1.png" %></p>
+<!-- <p><%= image_tag "http://i2.kym-cdn.com/photos/images/original/000/187/320/6a1.png" %></p> -->
 
-<table class="table-striped">
-  <% @items.each do |item| %>
-    <tr>
-      <td><%= image_tag item.image %></td>
-      <td><%= item.title %></td>
+<% @categories.each do |category| %>
+  <h2><%= category.name %></h2>
+  <% category.items.each do |item| %>
+    <div class="col-md-4">
+      <%= image_tag item.image, class: "img-thumbnail" %>
+      <%= item.title %>
       <% if item.retired %>
-        <td>Item Retired</td> 
+      Item Retired
       <% else %>
-        <td><%= button_to "Add to Cart", cart_path(item_id: item.id) %></td>
+      <%= button_to "Add to Cart", cart_path(item_id: item.id) %>
       <% end %>
-    </tr>
+    </div>
   <% end %>
-</table>
+<% end %>
