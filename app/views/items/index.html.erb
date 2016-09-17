@@ -1,16 +1,19 @@
-<h1>ALL THE ITEMS!!!!!!!!!</h1>
+<div class="page-header">
+  <h1>ALL THE ITEMS!!!!!!!!!</h1>
+</div>
 
 <p><%= image_tag "http://i2.kym-cdn.com/photos/images/original/000/187/320/6a1.png" %></p>
 
-<% @items.each do |item| %>
-  <%= image_tag item.image %>
-  <%= item.title %>
-  <% if item.retired %>
-     <p>Item Retired</p> 
-  <% else %>
-    <%= button_to "Add to Cart", cart_path(item_id: item.id) %>
+<table class="table-striped">
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= image_tag item.image %></td>
+      <td><%= item.title %></td>
+      <% if item.retired %>
+        <td>Item Retired</td> 
+      <% else %>
+        <td><%= button_to "Add to Cart", cart_path(item_id: item.id) %></td>
+      <% end %>
+    </tr>
   <% end %>
-<% end %>
-
-
-
+</table>
