@@ -19,5 +19,5 @@ Total: <%= number_to_currency(@cart.total) %>
 <% if current_user %>
 <%= button_to "Checkout"  %>
 <% else %>
-<%= link_to "Login or Create Account to Checkout", new_user_path %>
+<%= link_to "Login or Create Account to Checkout", new_user_path, class: "btn btn-primary" %>
 <% end %>
