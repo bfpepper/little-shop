@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.feature 'An authenticated user can only see their page and info' do
   scenario 'they cannot see other users page' do
-
   user_1 = create(:user)
   user_2 = create(:user)
 
@@ -16,6 +15,6 @@ RSpec.feature 'An authenticated user can only see their page and info' do
   expect(page).to have_content("Name: #{user_1.name}")
 
   visit "/users/#{user_2.id}"
-  expect(page).to_not have_content("user_2.id")
+  expect(page).to_not have_content('user_2.id')
   end
 end
