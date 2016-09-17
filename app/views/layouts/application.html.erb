@@ -14,6 +14,8 @@
       <div class="container-fluid">
         <a class="navbar-brand" href='/'>Turing Antiques</a>
         <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "All Items", items_path %></l>
+          <li><%= link_to "View Cart", cart_path %></li>
           <% if current_user %>
             <li class="navbar-text">
               Logged in as <%= current_user.username %>
@@ -22,7 +24,6 @@
           <% else %>
             <li><%= link_to "Login", login_path %></li>
           <% end %>
-          <li><%= link_to "View Cart", cart_path %></li>
         </ul>
       </div>
     </nav>
