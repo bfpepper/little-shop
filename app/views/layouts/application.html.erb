@@ -9,16 +9,27 @@
   </head>
 
   <body>
-    <div class="navbar">
-      <% if current_user %>
-        Logged in as <%= current_user.username %>
-        <%= link_to "Logout", logout_path, method: :delete %>
-      <% else %>
-        <%= link_to "Login", login_path %>
-      <% end %>
-      <%= link_to "View Cart", cart_path %>
-    </div>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <a class="navbar-brand" href='/'>Turing Antiques</a>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li class="navbar-text">
+              Logged in as <%= current_user.username %>
+            </li>
+            <li> <%= link_to "Logout", logout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Login", login_path %></li>
+          <% end %>
+          <li><%= link_to "View Cart", cart_path %></li>
+        </ul>
+      </div>
+    </nav>
+    
     <%= sanitize(flash[:notice]) %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
