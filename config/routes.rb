@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: [:index]
   end
+
+  get '*any', via: :all, to: 'errors#not_found', as: 'errors'
 end
