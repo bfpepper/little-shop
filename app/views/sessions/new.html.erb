@@ -2,11 +2,11 @@
   <h1>Login to your account.</h1>
 </div>
 
-<%= form_for(:session) do |f| %>
-  <%= f.text_field :username, placeholder: "Username" %>
-  <%= f.text_field :password, placeholder: "Password" %>
-  <%= f.submit %>
+<%= form_for(:session, html: {class: "form-inline"}) do |f|%>
+  <%= f.text_field :username, placeholder: "Username", class: "form-control" %>
+  <%= f.text_field :password, placeholder: "Password", class: "form-control" %>
+  <%= f.submit class: "btn btn-default" %>
 <% end %>
 
 
-<%= link_to "Create Account", new_user_path %>
+<%= link_to "Create Account", new_user_path, class: "btn btn-default" %>
