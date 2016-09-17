@@ -9,7 +9,11 @@
     <tr>
       <td><%= image_tag item.image %></td>
       <td><%= item.title %></td>
-      <td><%= button_to "Add to Cart", cart_path(item_id: item.id) %></td>
+      <% if item.retired %>
+        <td>Item Retired</td> 
+      <% else %>
+        <td><%= button_to "Add to Cart", cart_path(item_id: item.id) %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
