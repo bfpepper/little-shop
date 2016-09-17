@@ -1,3 +1,11 @@
-<%= @category.items.each do |item| %>
-  <%= item.title %>
-<% end %>
+<div class="page-header">
+  <h1><%= @category.name %></h1>
+</div>
+
+<table class="table-striped">
+  <%= @category.items.each do |item| %>
+    <tr>
+      <td><%= item.title %></td>
+    </tr>
+  <% end %>
+</table>
