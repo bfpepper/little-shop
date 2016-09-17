@@ -22,5 +22,5 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index]
   end
 
-  get "*any", via: :all, to: "errors#not_found", as: "errors"
+  get '*any', via: :all, to: 'errors#not_found', as: 'errors'
 end

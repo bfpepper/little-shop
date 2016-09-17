@@ -1,4 +1,4 @@
-class ErrorsController <ApplicationController
+class ErrorsController < ApplicationController
   def not_found
     render file: '/public/404'
   end
