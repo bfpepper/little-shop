@@ -5,12 +5,12 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
   end
-  
-  def create 
+
+  def create
     order = current_user.orders.new(order_params)
     if order.save
       redirect_to orders_path
-      flash[:notice] = "Order was successfully placed"
+      flash[:notice] = 'Order was successfully placed'
     else
       render cart_path
     end
@@ -22,10 +22,9 @@ class OrdersController < ApplicationController
     redirect_to request.referrer
   end
   
-  private 
-  
-  def order_params 
-    {:status => "Ordered", :price => @cart.total, user_id: current_user.id}
+  private
+
+  def order_params
+    { status: 'Ordered', price: @cart.total, user_id: current_user.id }
   end
-  
 end
