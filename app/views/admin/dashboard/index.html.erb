@@ -1,1 +1,18 @@
 <h1>Admin Dashboard</h1>
+
+Ordered: <%= @breakdown['ordered'] || 0 %>
+Paid: <%= @breakdown['paid'] || 0 %>
+Cancelled: <%= @breakdown['cancelled'] || 0 %>
+Completed: <%= @breakdown['completed'] || 0 %>
+
+<%= link_to 'Ordered', admin_dashboard_index_path(filter_by: 'ordered') %>
+
+<%= link_to 'Paid', admin_dashboard_index_path(filter_by: 'paid') %>
+
+<%= link_to 'Cancelled', admin_dashboard_index_path(filter_by: 'cancelled') %>
+
+<%= link_to 'Completed', admin_dashboard_index_path(filter_by: 'completed') %>
+
+<% @orders.each do |order| %>
+  <%= link_to "Order #{order.id}", order_path(order) %>
+<% end %>

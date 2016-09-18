@@ -8,4 +8,8 @@ class Order < ApplicationRecord
       collection[item] += 1
     end
   end
+
+  def self.breakdown
+    group(:status).count
+  end
 end
