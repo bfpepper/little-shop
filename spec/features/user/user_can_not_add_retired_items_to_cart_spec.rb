@@ -6,11 +6,11 @@ RSpec.feature 'User can not add retired items to cart' do
     category = create(:category)
 
     Item.create(title: 'Sock',
-                       description: 'Warms Your Feet',
-                       price: 10.00,
-                       image: 'sock.jpg',
-                       retired: true,
-                       category_id: category.id)
+                description: 'Warms Your Feet',
+                price: 10.00,
+                image: 'sock.jpg',
+                retired: true,
+                category_id: category.id)
 
     visit items_path
 
