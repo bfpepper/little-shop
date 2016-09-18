@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "A visitor looks at one item" do
-  scenario "they see the information for that item" do
+RSpec.feature 'A visitor looks at one item' do
+  scenario 'they see the information for that item' do
     item = create(:item)
 
     visit '/items'
