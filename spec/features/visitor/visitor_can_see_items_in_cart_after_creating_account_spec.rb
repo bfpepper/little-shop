@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Visitor can see items in cart after creating account' do
   scenario 'they can see the items after becoming registered user' do
-    item = create(:item)
+    create(:item)
 
     visit items_path
 

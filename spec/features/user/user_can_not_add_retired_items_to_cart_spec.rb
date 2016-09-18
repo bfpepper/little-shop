@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'User can not add retired items to cart' do
   scenario 'they will see item retired in place of add to cart' do
-    user = create(:user)
+    create(:user)
     category = create(:category)
 
     Item.create(title: 'Sock',

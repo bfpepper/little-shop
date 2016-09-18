@@ -2,13 +2,13 @@
   <h1>Order <%= @order.id %> Details</h1>
 </div>
 
-<table class="table-striped">
+<table class="table table-striped">
   <tr>
     <th>Quantity</th>
     <th>Item</th>
     <th>Total</th>
   </tr>
-  <% @order.contained_items.each do |item, quantity| %>
+  <%= @order.contained_items.each do |item, quantity| %>
     <tr>
       <td><%= quantity %></td>
       <td><%= link_to item.title, item_path(item) %></td>

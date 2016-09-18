@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'Visitor can add items, register, and checkout' do
-  scenario 'they can place their order on orders page after they register' do
-    item = create(:item)
+  scenario 'they can place their order on the order page after they register' do
+    create(:item)
 
     visit items_path
     click_on 'Add to Cart'
