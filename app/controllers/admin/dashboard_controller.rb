@@ -1,10 +1,10 @@
 module Admin
   class DashboardController < Admin::BaseController
     def index
-      if params[:filter_by]
-        @orders = Order.where(status: params[:filter_by])
+      @orders = if params[:filter_by]
+        Order.where(status: params[:filter_by])
       else
-        @orders = Order.all
+        Order.all
       end
       @breakdown = Order.breakdown
     end

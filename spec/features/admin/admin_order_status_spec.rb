@@ -27,7 +27,7 @@ RSpec.feature 'Admin views all orders' do
     
     expect(page).to have_link("Order #{order_1.id}", 
                               href: order_path(order_1))
-    expect(page).not_to have_link("Order #{order_2.id}", 
+    expect(page).not_to have_link("Order #{order_2.id}",
                                   href: order_path(order_2))
 
     expect(page).to have_link 'Ordered'
@@ -36,7 +36,7 @@ RSpec.feature 'Admin views all orders' do
 
     click_on 'Cancel order'
 
-    expect(page).not_to have_link("Order #{order_1.id}", 
+    expect(page).not_to have_link("Order #{order_1.id}",
                                   href: order_path(order_1))
 
     click_on 'Cancelled'
