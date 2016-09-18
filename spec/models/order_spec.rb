@@ -16,4 +16,11 @@ RSpec.describe Order, type: :model do
 
     expect(order.contained_items).to eq(item_1 => 1, item_2 => 1)
   end
+
+  it 'should return a breakdown of orders by status' do
+    create(:order, status: 'completed')
+    create(:order, status: 'paid')
+
+    expect(Order.breakdown).to eq('completed' => 1, 'paid' => 1)
+  end
 end
