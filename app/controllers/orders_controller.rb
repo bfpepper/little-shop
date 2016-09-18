@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
 
   def create
     order = current_user.orders.new(order_params)
+byebug
     if order.save
       redirect_to orders_path
       flash[:notice] = 'Order was successfully placed'

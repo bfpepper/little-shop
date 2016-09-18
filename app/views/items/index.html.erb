@@ -2,12 +2,10 @@
   <h1>ALL THE ITEMS!!!!!!!!!</h1>
 </div>
 
-<!-- <p><%= image_tag "http://i2.kym-cdn.com/photos/images/original/000/187/320/6a1.png" %></p> -->
-
 <% @categories.each do |category| %>
   <h2><%= category.name %></h2>
   <% category.items.each do |item| %>
-    <div class="col-md-4">
+    <div class="col-md-4", id="item_<%= item.id %>">
       <%= image_tag item.image, class: "img-thumbnail" %>
       <%= item.title %>
       <% if item.retired %>
