@@ -27,14 +27,14 @@ RSpec.feature 'Admin can log in and redirected to Admin Dashboard' do
 
     visit admin_dashboard_index_path
 
-    expect(page).to have_content('404')
+    expect(current_path).to eq(dashboard_path)
     expect(page).to_not have_content('Admin Dashboard')
   end
 
   scenario 'Visitor does not get to see admin dashboard' do
     visit admin_dashboard_index_path
 
-    expect(page).to have_content('404')
+    expect(page).to have_content("The page you were looking for doesn't exist.")
     expect(page).to_not have_content('Admin Dashboard')
   end
 end

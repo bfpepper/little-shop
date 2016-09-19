@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     if current_user
       @user = current_user
     else
-      render file: '/public/404'
+      render file: '/public/404', layout: false
     end
   end
 
