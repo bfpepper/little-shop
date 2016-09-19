@@ -1,18 +1,23 @@
 <div class="page-header">
-  <h1>ALL THE ITEMS!!!!!!!!!</h1>
+  <h1>All Items</h1>
 </div>
 
 <% @categories.each do |category| %>
+  <div class="well container">
   <h2><%= category.name %></h2>
   <% category.items.each do |item| %>
     <div class="col-md-4", id="item_<%= item.id %>">
-      <%= image_tag item.image, class: "img-thumbnail" %>
+      <div class="item-thumbnail">
+        <%= image_tag item.image, class: "img-responsive" %>
+      </div>
       <%= link_to item.title, item_path(item) %>
       <% if item.retired %>
       Item Retired
       <% else %>
-      <%= button_to "Add to Cart", cart_path(item_id: item.id) %>
+      <%= button_to "Add to Cart", cart_path(item_id: item.id), class: "btn btn-default" %>
       <% end %>
+      <br>
     </div>
   <% end %>
+  </div>
 <% end %>
