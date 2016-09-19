@@ -9,7 +9,7 @@
   <% category.items.each do |item| %>
     <div class="col-md-4">
       <%= image_tag item.image, class: "img-thumbnail" %>
-      <%= item.title %>
+      <%= link_to item.title, item_path(item) %>
       <% if item.retired %>
       Item Retired
       <% else %>
