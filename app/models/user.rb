@@ -7,4 +7,8 @@ class User < ApplicationRecord
                        uniqueness: true
 
   enum role: %w(default admin)
+
+  def has_order?(order_id)
+    self == Order.find(order_id).user
+  end
 end
