@@ -18,10 +18,10 @@ class OrdersController < ApplicationController
     order.update_attribute(:status, params[:new_status])
     redirect_to request.referrer
   end
-  
+
   private
 
   def order_params
-    { status: 'Ordered', price: @cart.total, user_id: current_user.id }
+    { status: 'ordered', price: @cart.total, user_id: current_user.id }
   end
 end
