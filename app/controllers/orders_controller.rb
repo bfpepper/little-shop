@@ -16,6 +16,12 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update
+    order = Order.find(params[:id])
+    order.update_attribute(:status, params[:new_status])
+    redirect_to request.referrer
+  end
+  
   private
 
   def order_params

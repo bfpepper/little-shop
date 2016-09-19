@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show, :update, :edit]
   resources :items, only: [:index, :show]
-  resources :orders, only: [:index, :show, :create]
+  resources :orders, only: [:index, :show, :create, :update]
 
   get '/dashboard', to: 'users#show'
 
