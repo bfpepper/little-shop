@@ -24,14 +24,14 @@ RSpec.describe Order, type: :model do
     expect(Order.breakdown).to eq('completed' => 1, 'paid' => 1)
   end
 
-  it "can confirm an order belongs to a user" do
+  it 'can confirm an order belongs to a user' do
     user = create(:user_with_orders)
     order = user.orders.first
 
     expect(user.has_order?(order.id)).to be true
   end
 
-  it "can confirm an order does not belong to a user" do
+  it 'can confirm an order does not belong to a user' do
     user = create(:user)
     order = create(:order)
 

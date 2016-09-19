@@ -2,7 +2,7 @@ module Admin
   class DashboardController < Admin::BaseController
     def index
       if current_user.nil?
-        render file: 'public/404.html'#, layout: false
+        render file: 'public/404.html', layout: false
       elsif !current_user.admin?
         redirect_to dashboard_path
       end
