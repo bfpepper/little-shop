@@ -18,14 +18,14 @@ RSpec.feature 'Admin views all orders' do
     expect(page).to have_content('Cancelled: 0')
     expect(page).to have_content('Completed: 0')
 
-    expect(page).to have_link("Order #{order_1.id}", 
+    expect(page).to have_link("Order #{order_1.id}",
                               href: order_path(order_1))
-    expect(page).to have_link("Order #{order_2.id}", 
+    expect(page).to have_link("Order #{order_2.id}",
                               href: order_path(order_2))
 
     click_on 'Paid'
-    
-    expect(page).to have_link("Order #{order_1.id}", 
+
+    expect(page).to have_link("Order #{order_1.id}",
                               href: order_path(order_1))
     expect(page).not_to have_link("Order #{order_2.id}",
                                   href: order_path(order_2))
@@ -41,20 +41,20 @@ RSpec.feature 'Admin views all orders' do
 
     click_on 'Cancelled'
 
-    expect(page).to have_link("Order #{order_1.id}", 
+    expect(page).to have_link("Order #{order_1.id}",
                               href: order_path(order_1))
 
     click_on 'Ordered'
     click_on 'Mark as Paid'
-    click_on 'Paid'  
+    click_on 'Paid'
 
-    expect(page).to have_link("Order #{order_2.id}", 
+    expect(page).to have_link("Order #{order_2.id}",
                               href: order_path(order_2))
 
     click_on 'Mark as Completed'
     click_on 'Completed'
 
-    expect(page).to have_link("Order #{order_2.id}", 
+    expect(page).to have_link("Order #{order_2.id}",
                               href: order_path(order_2))
   end
 end
