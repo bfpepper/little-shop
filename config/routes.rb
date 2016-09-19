@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/:category', to: 'categories#show'
 
   namespace :admin do
-    resources :dashboard, only: [:index, :edit]
+    resources :dashboard, only: [:index]
   end
 
   get '*any', via: :all, to: 'errors#not_found', as: 'errors'
