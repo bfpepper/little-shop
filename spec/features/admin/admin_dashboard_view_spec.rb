@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.feature 'Admin can log in and redirected to Admin Dashboard' do
   scenario 'Admin sees admin dashboard upon login' do
-  admin = create(:user, role: 1)
+    admin = create(:user, role: 1)
 
-  visit login_path
+    visit login_path
 
-  fill_in 'Username', with: admin.username
-  fill_in 'Password', with: admin.password
+    fill_in 'Username', with: admin.username
+    fill_in 'Password', with: admin.password
 
-  click_on 'Save Session'
+    click_on 'Save Session'
 
-  expect(current_path).to eq(admin_dashboard_index_path)
-  expect(page).to have_content('Admin Dashboard')
+    expect(current_path).to eq(admin_dashboard_index_path)
+    expect(page).to have_content('Admin Dashboard')
   end
 
   scenario 'Registered user does not get to see admin dashboard' do

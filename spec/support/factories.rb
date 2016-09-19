@@ -22,7 +22,7 @@ FactoryGirl.define do
     title
     description 'An item'
     price 94.00
-    image 'http://imgur.com/oldshoe'
+    image 'http://i.imgur.com/FZbrdyi.jpg'
   end
 
   sequence :title do |n|

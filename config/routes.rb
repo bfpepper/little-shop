@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root to: 'home#show'
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :update, :edit]
   resources :items, only: [:index, :show]
-  resources :orders, only: [:index, :show, :create]
+  resources :orders, only: [:index, :show, :create, :update]
 
   get '/dashboard', to: 'users#show'
 
@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get '/:category', to: 'categories#show'
 
   namespace :admin do
-    resources :dashboard, only: [:index]
+    resources :dashboard, only: [:index, :edit]
   end
+
+  get '*any', via: :all, to: 'errors#not_found', as: 'errors'
 end

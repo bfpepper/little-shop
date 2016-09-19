@@ -27,8 +27,12 @@
         </ul>
       </div>
     </nav>
-    
-    <%= sanitize(flash[:notice]) %>
+
+    <% if flash[:notice] %>
+      <div class="alert alert-info">
+        <%= sanitize(flash[:notice]) %>
+      </div>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>

@@ -13,8 +13,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if current_user.update(user_params)
+      redirect_to admin_dashboard_index_path
+    else
+      render :edit
+    end
+  end
+
   def show
-    @user = current_user
+    if current_user
+      @user = current_user
+    else
+      render file: '/public/404'
+    end
   end
 
   private
