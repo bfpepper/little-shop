@@ -31,7 +31,7 @@ electornics.items.create({
 })
 
 electornics.items.create({
-  title: "Sal's Keyboard"
+  title: "Sal's Keyboard",
   description: 'This oddly colored keyboard is guaranteed to make you run faster and jump higher.',
   price: 19.84,
   image: 'http://i.imgur.com/hC5S0kk.jpg'
