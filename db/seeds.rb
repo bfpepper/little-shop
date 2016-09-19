@@ -4,21 +4,21 @@ electornics = Category.create({
 
 electornics.items.create({
   title: 'Microphones',
-  description: 'A pair of Sennheiser mics. You'll be sure to be heard with these. Use with just three easy steps: 1) Say something clever. 2) Drop mic. 3) Walk away.',
+  description: "A pair of Sennheiser mics. You'll be sure to be heard with these. Use with just three easy steps: 1) Say something clever. 2) Drop mic. 3) Walk away.",
   price: 2.00,
   image: 'http://i.imgur.com/oKOO17Z.jpg'
 })
 
 electornics.items.create({
   title: 'Headphones (cream color)',
-  description: 'A pair of cream headphones. Used to listen to music, or just to wear without sound to indicate that you don't want those around you to be speaking to you.',
+  description: "A pair of cream headphones. Used to listen to music, or just to wear without sound to indicate that you don't want those around you to be speaking to you.",
   price: 89.00,
   image: 'http://i.imgur.com/R9EtDEo.jpg'
 })
 
 electornics.items.create({
   title: 'MacBook Charging Converter (certified pre-owned)',
-  description: 'This can be used to charge some Apple computers. That is, until Apple gets a wild hair and decides to change the model so it won't fit anymore. Their standards usually last a year or two. It's expensive, because otherwise how will you show it off as a status symbol?',
+  description: "This can be used to charge some Apple computers. That is, until Apple gets a wild hair and decides to change the model so it won't fit anymore. Their standards usually last a year or two. It's expensive, because otherwise how will you show it off as a status symbol?",
   price: 1999.99,
   image: 'http://i.imgur.com/Mtre4Qv.jpg'
 })
@@ -31,7 +31,7 @@ electornics.items.create({
 })
 
 electornics.items.create({
-  title: 'Sal's Keyboard',
+  title: "Sal's Keyboard"
   description: 'This oddly colored keyboard is guaranteed to make you run faster and jump higher.',
   price: 19.84,
   image: 'http://i.imgur.com/hC5S0kk.jpg'
@@ -50,7 +50,7 @@ stations.items.create({
 
 stations.items.create({
   title: 'Napping Station',
-  description: 'You've been working hard. Take a load off.',
+  description: "You've been working hard. Take a load off.",
   price: 77.77,
   image: 'http://i.imgur.com/Vq6DDhJ.jpg'
 })
@@ -79,14 +79,14 @@ miscellany.items.create({
 
 miscellany.items.create({
   title: 'Some Hockey Player',
-  description: 'Probably like Wayne Gretzky or something. I dunno, I'm American. Ask a Canadian.',
+  description: "Probably like Wayne Gretzky or something. I dunno, I'm American. Ask a Canadian.",
   price: 0.84,
   image: 'http://i.imgur.com/jDr1tLn.jpg'
 })
 
 miscellany.items.create({
   title: 'Old Shoes from the Back Stairwell',
-  description: 'These previously rocked beauties have been hanging around under the stars for a fortnight or two. Guaranteed to be broken in for you already. Jeff said to throw away anything worth less than twenty bucks, but these don't fit that criterion',
+  description: 'These previously rocked beauties have been hanging around under the stars for a fortnight or two. Guaranteed to be broken in for you already. Jeff said to throw away anything worth less than twenty bucks, but these don't fit that criterion",
   price: 20.01,
   image: 'http://i.imgur.com/FZbrdyi.jpg'
 })
