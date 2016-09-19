@@ -8,16 +8,9 @@ class OrdersController < ApplicationController
 
   def create
     checkout = Checkout.new(order_params, @cart.contained_items)
-    checkout.save
+    checkout.create
     flash[:notice] = 'Order was successfully placed'
     redirect_to orders_path
-    # order = current_user.orders.new(order_params)
-    # if order.save
-    #   redirect_to orders_path
-    #   flash[:notice] = 'Order was successfully placed'
-    # else
-    #   render cart_path
-    # end
   end
 
   private

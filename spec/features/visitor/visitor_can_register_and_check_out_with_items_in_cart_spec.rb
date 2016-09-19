@@ -29,6 +29,5 @@ RSpec.feature 'Visitor can add items, register, and checkout' do
 
     expect(page).to have_current_path(orders_path)
     expect(page).to have_content('Order was successfully placed')
-byebug
   end
 end
