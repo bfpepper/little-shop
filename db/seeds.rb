@@ -86,7 +86,7 @@ miscellany.items.create({
 
 miscellany.items.create({
   title: 'Old Shoes from the Back Stairwell',
-  description: 'These previously rocked beauties have been hanging around under the stars for a fortnight or two. Guaranteed to be broken in for you already. Jeff said to throw away anything worth less than twenty bucks, but these don't fit that criterion",
+  description: "These previously rocked beauties have been hanging around under the stars for a fortnight or two. Guaranteed to be broken in for you already. Jeff said to throw away anything worth less than twenty bucks, but these don't fit that criterion",
   price: 20.01,
   image: 'http://i.imgur.com/FZbrdyi.jpg'
 })
