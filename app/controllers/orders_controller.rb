@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    if current_user && current_user.has_order?(params[:id])
+    if current_user && (current_user.has_order?(params[:id]) || current_user.admin?)
       @order = Order.find(params[:id])
     elsif current_user
       redirect_to orders_path
