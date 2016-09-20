@@ -14,14 +14,14 @@ RSpec.feature 'A user views a single order' do
 
       fill_in 'Username', with: user.username
       fill_in 'Password', with: user.password
-      click_on 'Save Session'
+      click_button 'Login'
       visit '/orders'
       expect(page).to have_link('View order', href: order_path(order_1))
 
       click_link 'View order', href: order_path(order_1)
 
-      expect(page).to have_content("2 #{item_1.title} #{item_1.price * 2}")
-      expect(page).to have_content("1 #{item_2.title} #{item_2.price}")
+      expect(page).to have_content("2 #{item_1.title} $#{item_1.price * 2}")
+      expect(page).to have_content("1 #{item_2.title} $#{item_2.price}")
       expect(page).to have_link(item_1.title, href: item_path(item_1))
       expect(page).to have_link(item_2.title, href: item_path(item_2))
       expect(page).to have_content(order_1.status)
@@ -42,7 +42,7 @@ RSpec.feature 'A user views a single order' do
 
       fill_in 'Username', with: user_2.username
       fill_in 'Password', with: user_2.password
-      click_on 'Save Session'
+      click_button 'Login'
       visit order_path(order_1)
 
       expect(current_path).to eq(orders_path)

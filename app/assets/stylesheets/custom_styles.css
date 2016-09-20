@@ -7,8 +7,8 @@
 
 .item-thumbnail img {
   position:absolute;
-  width:auto;
-  max-height: 100%;
+  width: 350px;
+  height: 350px;
   border-radius: 5px;
   border: 2px solid black;
 }
@@ -31,3 +31,13 @@ h6,
 .h6 {
       font-family: "Baloo Bhaina", cursive!important;
 }
+
+.brown {background-color: #774F38!important;}
+
+.pink {background-color: #E08E79!important;}
+
+.blue {background-color: #C5E0DC!important;}
+
+.powerpuffgirl {background-color: #ECE5CE!important;}
+
+.well { box-sizing: border-box!important;}

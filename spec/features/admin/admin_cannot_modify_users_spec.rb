@@ -10,7 +10,7 @@ RSpec.feature 'Admin can modify their account data' do
     fill_in 'Username', with: admin.username
     fill_in 'Password', with: admin.password
 
-    click_on 'Save Session'
+    click_button 'Login'
 
     expect(page).to have_content('Modify Account Data')
 
@@ -28,7 +28,7 @@ RSpec.feature 'Admin can modify their account data' do
     fill_in 'Username', with: admin.username
     fill_in 'Password', with: 'new password'
 
-    click_on 'Save Session'
+    click_button 'Login'
 
     expect(page).to have_content('Modify Account Data')
   end

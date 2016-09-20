@@ -8,7 +8,7 @@ RSpec.feature 'User can update their login credentials' do
     
     fill_in 'Username', with: user.username
     fill_in 'Password', with: user.password
-    click_on 'Save Session'
+    click_button 'Login'
     
     visit edit_user_path(user)
     
@@ -27,7 +27,7 @@ RSpec.feature 'User can update their login credentials' do
     
     fill_in 'Username', with: user.username
     fill_in 'Password', with: user.password
-    click_on 'Save Session'
+    click_button 'Login'
     
     visit edit_user_path(user)
     

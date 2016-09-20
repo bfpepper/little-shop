@@ -5,10 +5,10 @@ RSpec.feature 'Logged in user logs out' do
     user = create(:user)
     # As a logged in user
     visit '/'
-    click_on 'Login'
+    click_link 'Login'
     fill_in 'Username', with: user.username
     fill_in 'Password', with: user.password
-    click_on 'Save Session'
+    click_button 'Login'
     # When I click "Logout"
     click_on 'Logout'
     # Then I should see see "Login"

@@ -9,7 +9,7 @@ RSpec.feature 'A user views their orders' do
 
     fill_in 'Username', with: user.username
     fill_in 'Password', with: user.password
-    click_on 'Save Session'
+    click_button 'Login'
 
     visit '/orders'
 
@@ -27,7 +27,7 @@ RSpec.feature 'A user views their orders' do
   
     fill_in 'Username', with: user1.username
     fill_in 'Password', with: user1.password
-    click_on 'Save Session'
+    click_button 'Login'
   
     visit '/orders'
   
