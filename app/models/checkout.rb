@@ -11,5 +11,6 @@ class Checkout
         order.order_items.create(item_id: item.id)
       end
     end
+    MessageSender.send_sms('+18015583951', 'Order was successfully placed')
   end
 end
