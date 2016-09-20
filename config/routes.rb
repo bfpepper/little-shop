@@ -22,6 +22,4 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index, :edit]
     resources :items, only: [:new, :create]
   end
-
-  get '*any', via: :all, to: 'errors#not_found', as: 'errors'
 end
