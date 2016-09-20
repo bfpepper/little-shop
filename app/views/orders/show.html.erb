@@ -8,7 +8,7 @@
     <th>Item</th>
     <th>Total</th>
   </tr>
-  <%= @order.contained_items.each do |item, quantity| %>
+  <% @order.contained_items.each do |item, quantity| %>
     <tr>
       <td><%= quantity %></td>
       <td><%= link_to item.title, item_path(item) %></td>
