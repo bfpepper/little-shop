@@ -31,4 +31,17 @@ RSpec.feature 'Visitor can get to new account page' do
     expect(page).to_not have_content('Login')
     expect(page).to have_content('Logout')
   end
+  
+  scenario 'Visitor can not create a new account without username' do
+    visit '/login'
+    click_link 'Create Account'
+
+    fill_in('Name', with: 'Corey')
+    fill_in('Password', with: 'test')
+    fill_in('Password Confirm', with: 'test')
+
+    click_button 'Create Account'
+
+    expect(page).to have_content('Create your brand spanking new account!!')
+  end
 end

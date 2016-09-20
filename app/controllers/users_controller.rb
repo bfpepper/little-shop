@@ -18,9 +18,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update(user_params)
+    if current_user.admin? && current_user.update(user_params)
       redirect_to admin_dashboard_index_path
-    else
+    elsif current_user.update(user_params)
+      redirect_to user_path(current_user)
+    else 
       render :edit
     end
   end
