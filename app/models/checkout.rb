@@ -20,7 +20,7 @@ class Checkout
   end
 
   def send_sms_confirmation(user)
-    if user.phone_number
+    if user.phone_number && user.phone_number.length >= 10
       MessageSender.send_sms(user.phone_number, 'Order was successfully placed')
     end
   end
