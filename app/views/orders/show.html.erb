@@ -12,11 +12,11 @@
     <tr>
       <td><%= quantity %></td>
       <td><%= link_to item.title, item_path(item) %></td>
-      <td><%= item.price * quantity %></td>
+      <td><%= number_to_currency(item.price * quantity) %></td>
     </tr>
   <% end %>
 </table>
 
 Order Status: <%= @order.status %>
-Order Total: <%= @order.price %>
+Order Total: <%= number_to_currency(@order.price) %>
 Order submitted at: <%= @order.created_at %>
