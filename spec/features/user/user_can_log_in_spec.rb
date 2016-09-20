@@ -27,4 +27,16 @@ RSpec.feature 'Authenticated user logs in' do
     expect(page).not_to have_content('Login')
     expect(page).to have_content('Logout')
   end
+  
+  scenario 'they can not use bad credentials to log in' do
+    user = create(:user)
+    
+    visit login_path 
+    
+    fill_in 'Username', with: "random"
+    fill_in 'Password', with: user.password
+    click_on 'Save Session'
+    
+    expect(page).to have_content('Login to your account.')
+  end
 end
