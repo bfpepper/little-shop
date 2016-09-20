@@ -2,10 +2,4 @@
   <h1><%= @category.name %></h1>
 </div>
 
-<table class="table-striped">
-  <%= @category.items.each do |item| %>
-    <tr>
-      <td><%= item.title %></td>
-    </tr>
-  <% end %>
-</table>
+<%= render partial: 'item_summary', locals: {category: @category} %>

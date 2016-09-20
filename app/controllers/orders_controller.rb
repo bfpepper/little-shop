@@ -3,13 +3,20 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    if current_user && current_user.has_order?(params[:id])
+      @order = Order.find(params[:id])
+    elsif current_user
+      redirect_to orders_path
+    else
+      redirect_to root_path
+    end
   end
 
   def create
     checkout = Checkout.new(order_params, @cart.contained_items)
     checkout.create
     flash[:notice] = 'Order was successfully placed'
+    session[:cart] = nil
     redirect_to orders_path
   end
 

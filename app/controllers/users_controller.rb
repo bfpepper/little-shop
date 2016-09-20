@@ -14,12 +14,16 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
-    if current_user.update(user_params)
+    @user = current_user
+    if current_user.admin? && current_user.update(user_params)
       redirect_to admin_dashboard_index_path
-    else
+    elsif current_user.update(user_params)
+      redirect_to user_path(current_user)
+    else 
       render :edit
     end
   end
@@ -28,7 +32,7 @@ class UsersController < ApplicationController
     if current_user
       @user = current_user
     else
-      render file: '/public/404'
+      render file: '/public/404', layout: false
     end
   end
 
@@ -36,6 +40,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user)
-          .permit(:id, :name, :username, :password, :password_confirmation)
+          .permit(:id, :name, :phone_number, :username, :password, :password_confirmation)
   end
 end

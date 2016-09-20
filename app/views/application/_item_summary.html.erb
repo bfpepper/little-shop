@@ -1,0 +1,21 @@
+<div class="well container powerpuffgirl" >
+<h2><%= category.name %></h2>
+<% category.items.each do |item| %>
+  <div class="col-md-4", id="item_<%= item.id %>">
+    <div class="item-thumbnail">
+      <%= image_tag item.image, class: "img-responsive" %>
+    </div>
+    <span class="badge">
+      <%= number_to_currency(item.price) %>
+    </span>
+    <%= link_to item.title, item_path(item) %>
+    <br>
+    <% if item.retired %>
+    Item Retired
+    <% else %>
+    <%= button_to "Add to Cart", cart_path(item_id: item.id), class: "btn btn-default" %>
+    <% end %>
+    <br>
+  </div>
+<% end %>
+</div>

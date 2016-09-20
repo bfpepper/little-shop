@@ -2,28 +2,34 @@
   <h1>Your Cart</h1>
 </div>
 
-<table class="table table-striped" id="cart-contents">
-  <% @items.each do |item, quantity| %>
+<div class="well powerpuffgirl">
+  <table class="table table-striped" id="cart-contents">
+    <% @items.each do |item, quantity| %>
     <tr>
       <td><%= image_tag item.image, width: 100 %></td>
       <td><%= item.title %></td>
-      <td>$<%= item.price %></td>
+      <td><%= number_to_currency(item.price) %></td>
       <td><%= item.description.truncate_words(10) %></td>
-      <td><%= button_to "+", cart_path(item_id: item.id, quantity_change: 1), method: "put" %></td>
-      <td><%= button_to "-", cart_path(item_id: item.id, quantity_change: -1), method: "put" %></td>
+      <td>
+        <div class="btn-group">
+          <%= button_to "+", cart_path(item_id: item.id, quantity_change: 1), method: "put" %>
+          <%= button_to "-", cart_path(item_id: item.id, quantity_change: -1), method: "put" %>
+        </div>
+      </td>
       <td>Quantity: <%= quantity %></td>
     </tr>
     <tr>
-      <td></td><td></td><td></td><td></td><td></td>
+      <td></td><td></td><td></td><td></td>
       <td><%= button_to "Remove", cart_path(item_id: item.id), method: 'delete' %></td>
       <td>Subtotal: <%= number_to_currency(item.price * quantity) %></td>
     </tr>
-  <% end %>
-</table>
+    <% end %>
+  </table>
 
-Total: <%= number_to_currency(@cart.total) %>
-<% if current_user %>
-<%= button_to "Checkout", orders_path %>
-<% else %>
-<%= link_to "Login or Create Account to Checkout", new_user_path, class: "btn btn-primary" %>
-<% end %>
+  Total: <%= number_to_currency(@cart.total) %>
+  <% if current_user %>
+    <%= button_to "Checkout", orders_path %>
+  <% else %>
+    <%= link_to "Login or Create Account to Checkout", new_user_path, class: "btn btn-primary" %>
+  <% end %>
+</div>

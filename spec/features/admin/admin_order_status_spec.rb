@@ -11,7 +11,7 @@ RSpec.feature 'Admin views all orders' do
     fill_in 'Username', with: admin.username
     fill_in 'Password', with: admin.password
 
-    click_on 'Save Session'
+    click_button 'Login'
 
     expect(page).to have_content('Ordered: 1')
     expect(page).to have_content('Paid: 1')

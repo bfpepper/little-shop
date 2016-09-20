@@ -8,7 +8,7 @@ RSpec.feature 'Admin can log in and see the admin dashboard' do
     fill_in 'Username', with: user_1.username
     fill_in 'Password', with: user_1.password
 
-    click_on 'Save Session'
+    click_button 'Login'
 
     expect(current_path).to eq(admin_dashboard_index_path)
     expect(page).to have_content('Admin Dashboard')
