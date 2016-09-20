@@ -20,18 +20,15 @@ RSpec.feature 'Admin user can create a new item' do
   expect(current_path).to eq(new_admin_item_path)
 
   fill_in 'Title', with: 'New Item'
-  fill_in 'Description', with: 'New description'
+  fill_in 'Description', with: 'New Description'
   fill_in 'Price', with: 10.00
-  page.select category.name, from: 'item[category]'
+  page.select category.name, from: 'item[category_id]'
   fill_in 'Image', with: 'www.example.com'
 
-  expect(current_path).to eq(item_path(Item.all.last))
+  click_button("Add Item")
+
+  expect(page).to have_content("New Item")
+  expect(page).to have_content("New Description")
+  expect(page).to have_content("10.00")
   end
 end
-
-
-#
-# The title and description cannot be empty.
-# The title must be unique for all items in the system.
-# The price must be a valid decimal numeric value and greater than zero.
-# The photo is optional. If not present, a stand-in photo is used. (PAPERCLIP)

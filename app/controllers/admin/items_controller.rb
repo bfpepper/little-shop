@@ -19,7 +19,7 @@ module Admin
 
     def item_params
       params.require(:item)
-      .permit(:title, :description, :price, :category, :image)
+      .permit(:title, :description, :price, :category_id, :image)
     end
   end
 end
