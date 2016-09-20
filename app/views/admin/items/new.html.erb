@@ -1,0 +1,12 @@
+<div class="page-header">
+    <h1>Add a new item that you want to sell</h1>
+</div>
+
+<%= form_for([:admin, @item]) do |f| %>
+<%= f.text_field :title, placeholder: "Title", class: "form-control" %>
+<%= f.text_field :description, placeholder: "Description", class: "form-control" %>
+<%= f.text_field :price, placeholder: "Price", class: "form-control" %>
+<%= f.collection_select :category_id, @categories,:id, :name, prompt: "Category" %>
+<%= f.text_field :image, placeholder: "Image", class: "form-control" %>
+<%= f.submit "Add Item" %>
+<% end %>

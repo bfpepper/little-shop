@@ -15,16 +15,17 @@ Completed: <%= @breakdown['completed'] || 0 %>
 
 <% @orders.each do |order| %>
   <%= link_to "Order #{order.id}", order_path(order) %>
-  
+
   <% if order.status == 'paid' || order.status == 'ordered' %>
     <%= button_to "Cancel order", order_path(order, new_status: 'cancelled'), method: 'patch' %>
   <% end %>
-  
+
   <% if order.status == 'ordered' %>
     <%= button_to "Mark as Paid", order_path(order, new_status: 'paid'), method: 'patch' %>
   <% elsif order.status == 'paid' %>
     <%= button_to "Mark as Completed", order_path(order, new_status: 'completed'), method: 'patch' %>
   <% end %>
-    
+
 <% end %>
 <%= link_to "Modify Account Data",  edit_user_path(current_user) %>
+<%= link_to 'Add item to sell', new_admin_item_path %>
