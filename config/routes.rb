@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#show'
 
   resources :users, only: [:new, :create, :show, :update, :edit]
-  resources :items, only: [:index, :show, :create]
+  resources :items, only: [:index, :show]
   resources :orders, only: [:index, :show, :create, :update]
 
   get '/dashboard', to: 'users#show'

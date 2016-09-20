@@ -1,18 +1,7 @@
 <div class="page-header">
-  <h1>ALL THE ITEMS!!!!!!!!!</h1>
+  <h1>All Items</h1>
 </div>
 
 <% @categories.each do |category| %>
-  <h2><%= category.name %></h2>
-  <% category.items.each do |item| %>
-    <div class="col-md-4", id="item_<%= item.id %>">
-      <%= image_tag item.image, class: "img-thumbnail" %>
-      <%= link_to item.title, item_path(item) %>
-      <% if item.retired %>
-      Item Retired
-      <% else %>
-      <%= button_to "Add to Cart", cart_path(item_id: item.id) %>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render partial: 'item_summary', locals: {category: category} %>
 <% end %>
