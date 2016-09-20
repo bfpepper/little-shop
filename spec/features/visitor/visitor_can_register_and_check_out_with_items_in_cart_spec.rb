@@ -18,7 +18,6 @@ RSpec.feature 'Visitor can add items, register, and checkout' do
     click_on 'Login or Create Account to Checkout'
 
     fill_in('Name', with: 'Bob')
-    fill_in('Phone Number', with: '+18015583951')
     fill_in('Username', with: 'bob')
     fill_in('Password', with: 'bob')
     fill_in('Password Confirm', with: 'bob')
