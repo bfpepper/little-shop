@@ -1,0 +1,11 @@
+<%= form_for(@user) do |f| %>
+  <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+  <%= f.telephone_field :phone_number, placeholder: "Phone Number",
+                        class: "form-control" %>
+  <%= f.text_field :username, placeholder: "Username", class: "form-control" %>
+  <%= f.password_field :password, placeholder: "Password",
+                       class: "form-control" %>
+  <%= f.password_field :password_confirmation, placeholder: "Password Confirm",
+                       class: "form-control"%>
+  <%= f.submit @submit_button_text, class: "btn btn-success" %>
+<% end %>

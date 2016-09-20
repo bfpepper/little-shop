@@ -9,7 +9,6 @@ class CartController < ApplicationController
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     refresh_cart
-    # flash[:notice] = "You have #{pluralize(x, item.title)} in your cart"
     redirect_to cart_path
   end
 
