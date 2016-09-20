@@ -9,7 +9,7 @@ RSpec.feature 'An authenticated user can only see their page and info' do
 
     fill_in 'Username', with: user_1.username
     fill_in 'Password', with: user_1.password
-    click_on 'Save Session'
+    click_button 'Login'
 
     visit dashboard_path
     expect(page).to have_content("Hello, #{user_1.name}")
