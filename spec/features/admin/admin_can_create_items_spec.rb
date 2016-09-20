@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature 'Admin user can create a new item' do
   scenario 'Admin can add items to the store to sell' do
 
-    # As an authenticated Admin:
   admin = create(:user, role: 1)
+  category = create(:category)
 
   visit login_path
 
@@ -17,16 +17,15 @@ RSpec.feature 'Admin user can create a new item' do
 
   click_link('Add item to sell')
 
-  expect(current_path).to eq(admin_items_path)
+  expect(current_path).to eq(new_admin_item_path)
 
-  # I can create an item.
-  # An item must have a title, description and price.
   fill_in 'Title', with: 'New Item'
-  fill_in 'description', with: 'New description'
+  fill_in 'Description', with: 'New description'
   fill_in 'Price', with: 10.00
-  # An item must belong to at least one category.
-  fill_in 'Category', with: 'New Category'
-  fill_in 'Item Image', with: 'www.example.com'
+  page.select category.name, from: 'item[category]'
+  fill_in 'Image', with: 'www.example.com'
+
+  expect(current_path).to eq(item_path)
   end
 end
 
