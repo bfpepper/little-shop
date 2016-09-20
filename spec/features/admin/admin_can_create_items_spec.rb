@@ -25,7 +25,7 @@ RSpec.feature 'Admin user can create a new item' do
   page.select category.name, from: 'item[category]'
   fill_in 'Image', with: 'www.example.com'
 
-  expect(current_path).to eq(item_path)
+  expect(current_path).to eq(item_path(Item.all.last))
   end
 end
 
