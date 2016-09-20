@@ -7,7 +7,7 @@
     <tr>
       <td><%= image_tag item.image, width: 100 %></td>
       <td><%= item.title %></td>
-      <td>$<%= item.price %></td>
+      <td><%= number_to_currency(item.price) %></td>
       <td><%= item.description.truncate_words(10) %></td>
       <td><%= button_to "+", cart_path(item_id: item.id, quantity_change: 1), method: "put" %></td>
       <td><%= button_to "-", cart_path(item_id: item.id, quantity_change: -1), method: "put" %></td>
