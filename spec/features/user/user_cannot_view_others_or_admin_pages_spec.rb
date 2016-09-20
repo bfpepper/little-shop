@@ -12,7 +12,7 @@ RSpec.feature 'An authenticated user can only see their page and info' do
     click_on 'Save Session'
 
     visit dashboard_path
-    expect(page).to have_content("Name: #{user_1.name}")
+    expect(page).to have_content("Hello, #{user_1.name}")
 
     visit "/users/#{user_2.id}"
     expect(page).to_not have_content('user_2.id')

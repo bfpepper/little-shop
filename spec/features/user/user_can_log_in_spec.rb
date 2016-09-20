@@ -23,7 +23,7 @@ RSpec.feature 'Authenticated user logs in' do
       expect(page).to have_content("Logged in as #{user.username}")
     end
     expect(current_path).to eq(dashboard_path)
-    expect(page).to have_content("Name: #{user.name}")
+    expect(page).to have_content("Hello, #{user.name}")
     expect(page).not_to have_content('Login')
     expect(page).to have_content('Logout')
   end

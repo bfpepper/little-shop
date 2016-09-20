@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
     checkout = Checkout.new(order_params, @cart.contained_items)
     checkout.create
     flash[:notice] = 'Order was successfully placed'
+    session[:cart] = nil
     redirect_to orders_path
   end
 

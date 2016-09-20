@@ -18,7 +18,7 @@ class Cart
     contents.reduce(0) do |total, (item_id, quantity)|
       item = Item.find(item_id)
       total += (item.price * quantity)
-      return total
+      total
     end
   end
 

@@ -27,7 +27,7 @@ RSpec.feature 'Visitor can get to new account page' do
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content('Logged in as Cory')
-    expect(page).to have_content('Name: Corey')
+    expect(page).to have_content('Hello, Corey')
     expect(page).to_not have_content('Login')
     expect(page).to have_content('Logout')
   end
