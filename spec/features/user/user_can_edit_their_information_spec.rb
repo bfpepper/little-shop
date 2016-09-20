@@ -31,9 +31,7 @@ RSpec.feature 'User can update their login credentials' do
     
     visit edit_user_path(user)
     
-    fill_in 'Username', with: ""
-    fill_in 'Password', with: user.password
-    fill_in 'Password Confirm', with: user.password
+    fill_in "user[username]", with: ""
     click_on 'Update Account'
     
     expect(page).to have_content("Edit Your Info")

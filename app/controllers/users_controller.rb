@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
     if current_user.admin? && current_user.update(user_params)
       redirect_to admin_dashboard_index_path
     elsif current_user.update(user_params)
