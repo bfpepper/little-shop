@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   get '/:category', to: 'categories#show'
 
+  get '/auth/twitter', as: 'twitter_login'
+  get '/auth/twitter/callback', to: 'sessions#create'
+
   namespace :admin do
     resources :dashboard, only: [:index, :edit]
     resources :items, only: [:new, :create]
