@@ -27,6 +27,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'awesome_print'
 gem 'twilio-ruby'
 gem 'figaro'
+gem 'omniauth-twitter'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

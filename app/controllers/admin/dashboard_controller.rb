@@ -6,7 +6,6 @@ module Admin
       elsif !current_user.admin?
         redirect_to dashboard_path
       end
-
       @orders = if params[:filter_by]
                   Order.where(status: params[:filter_by])
                 else

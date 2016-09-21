@@ -6,8 +6,8 @@
   <table class="table table-striped" id="cart-contents">
     <% @items.each do |item, quantity| %>
     <tr>
-      <td><%= image_tag item.image, width: 100 %></td>
-      <td><%= item.title %></td>
+      <td><%= link_to (image_tag item.image, width: 100), item_path(item) %></td>
+      <td><%= link_to (item.title), item_path(item) %></td>
       <td><%= number_to_currency(item.price) %></td>
       <td><%= item.description.truncate_words(10) %></td>
       <td>

@@ -31,10 +31,10 @@ electornics.items.create({
 })
 
 electornics.items.create({
-  title: "Sal's Keyboard",
+  title: "Mike's Keyboard",
   description: 'This oddly colored keyboard is guaranteed to make you run faster and jump higher.',
   price: 19.84,
-  image: 'http://i.imgur.com/hC5S0kk.jpg'
+  image: 'http://i.imgur.com/mMsDy7t.jpg'
 })
 
 stations = Category.create({
@@ -79,14 +79,14 @@ miscellany.items.create({
 
 miscellany.items.create({
   title: 'Some Hockey Player',
-  description: "Probably like Wayne Gretzky or something. I dunno, I'm American. Ask a Canadian.",
+  description: "Probably like Wayne Gretzky or something.",
   price: 0.84,
   image: 'http://i.imgur.com/jDr1tLn.jpg'
 })
 
 miscellany.items.create({
   title: 'Old Shoes from the Back Stairwell',
-  description: "These previously rocked beauties have been hanging around under the stars for a fortnight or two. Guaranteed to be broken in for you already. Jeff said to throw away anything worth less than twenty bucks, but these don't fit that criterion",
+  description: "These previously rocked beauties have been hanging around under the stars for a fortnight or two. Guaranteed to be broken in for you already. Jeff said to throw away anything worth less than twenty bucks, but these don't fit that criterion.",
   price: 20.01,
   image: 'http://i.imgur.com/FZbrdyi.jpg'
 })
