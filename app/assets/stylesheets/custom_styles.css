@@ -41,3 +41,9 @@ h6,
 .powerpuffgirl {background-color: #ECE5CE!important;}
 
 .well { box-sizing: border-box!important;}
+
+.carousel-image {
+  max-height: 600px!important;
+  width: auto!important;
+  margin: 0 auto;
+}
