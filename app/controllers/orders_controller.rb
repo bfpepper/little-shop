@@ -13,11 +13,15 @@ class OrdersController < ApplicationController
   end
 
   def create
-    checkout = Checkout.new(order_params, @cart.contained_items)
-    checkout.create
-    flash[:notice] = 'Order was successfully placed'
-    session[:cart] = nil
-    redirect_to orders_path
+    if @cart.total == 0
+      redirect_to cart_path
+    else
+      checkout = Checkout.new(order_params, @cart.contained_items)
+      checkout.create
+      flash[:notice] = 'Order was successfully placed'
+      session[:cart] = nil
+      redirect_to orders_path
+    end
   end
 
   def update
