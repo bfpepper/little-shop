@@ -1,24 +1,16 @@
-# README
+# Turing Antiques
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### TEAM
+ - Nate Anderson 
+ - Christopher Calaway
+ - Brendan Dillon
+ - Ben Pepper
 
-Things you may want to cover:
+Turing Antiques is a shopping cart application. It allows users to buy items and administrators to create items and track orders.
+We are selling NON-STOLEN items that were RECKLESSLY ABANDONED in the basement.
 
-* Ruby version
+## Features
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ - Users can add items to a cart that persists across sessions
+ - Text message confirmation for orders
+ - Administrators can change status of past orders
