@@ -3,7 +3,7 @@
 <% category.items.each do |item| %>
   <div class="col-md-4", id="item_<%= item.id %>">
     <div class="item-thumbnail">
-      <%= image_tag item.image, class: "img-responsive" %>
+      <%= link_to (image_tag item.image, class: "img-responsive"), item_path(item) %>
     </div>
     <span class="badge">
       <%= number_to_currency(item.price) %>
@@ -13,7 +13,7 @@
     <% if item.retired %>
     Item Retired
     <% else %>
-    <%= button_to "Add to Cart", cart_path(item_id: item.id), class: "btn btn-default" %>
+    <%= button_to "Add to Cart", cart_path(item_id: item.id), class: "btn btn-default blue" %>
     <% end %>
     <br>
   </div>
