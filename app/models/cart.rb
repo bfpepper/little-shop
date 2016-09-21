@@ -24,6 +24,7 @@ class Cart
 
   def change_quantity(item_id, quantity)
     contents[item_id.to_s] += quantity.to_i
+    remove_item(item_id) if contents[item_id.to_s] <= 0
   end
 
   def contained_items
