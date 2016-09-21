@@ -1,6 +1,5 @@
 module Admin
   class ItemsController < Admin::BaseController
-
     def create
       @item = Item.new(item_params)
       if @item.save
@@ -19,8 +18,7 @@ module Admin
     private
 
     def item_params
-      params.require(:item)
-      .permit(:title, :description, :price, :category_id, :image)
+      params.require(:item).permit(:title, :description, :price, :category_id, :image)
     end
   end
 end
