@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default blue">
+  <div class="container-fluid">
+    <a class="navbar-brand" href='/'>Turing Antiques</a>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "All Items", items_path %></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Item Categories <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <% all_categories.each do |category| %>
+            <li><%= link_to "#{category.name}", "/#{category.name}" %></li>
+          <% end %>
+        </ul>
+      </li>
+      <li><%= link_to "View Cart", cart_path %></li>
+      <% if current_user %>
+        <li>
+          <%= link_to "Logged in as #{current_user.username}", dashboard_path %>
+        </li>
+        <li> <%= link_to "Logout", logout_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Login", login_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
