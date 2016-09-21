@@ -2,21 +2,22 @@
   <h1>Order <%= @order.id %> Details</h1>
 </div>
 
-<table class="table table-striped">
-  <tr>
-    <th>Quantity</th>
-    <th>Item</th>
-    <th>Total</th>
-  </tr>
-  <% @order.contained_items.each do |item, quantity| %>
+<div class="well powerpuffgirl">
+  <h4>Order Status:</h4> <%= @order.status %>
+  <h4>Order Total:</h4> <%= number_to_currency(@order.price) %>
+  <h4>Order submitted at:</h4> <%= @order.created_at %>
+  <table class="table table-striped">
     <tr>
-      <td><%= quantity %></td>
-      <td><%= link_to item.title, item_path(item) %></td>
-      <td><%= number_to_currency(item.price * quantity) %></td>
+      <th>Quantity</th>
+      <th>Item</th>
+      <th>Subtotal</th>
     </tr>
-  <% end %>
-</table>
-
-Order Status: <%= @order.status %>
-Order Total: <%= number_to_currency(@order.price) %>
-Order submitted at: <%= @order.created_at %>
+    <% @order.contained_items.each do |item, quantity| %>
+      <tr>
+        <td><%= quantity %></td>
+        <td><%= link_to item.title, item_path(item) %></td>
+        <td><%= number_to_currency(item.price * quantity) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

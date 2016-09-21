@@ -1,31 +1,35 @@
 <h1>Admin Dashboard</h1>
 
-Ordered: <%= @breakdown['ordered'] || 0 %>
-Paid: <%= @breakdown['paid'] || 0 %>
-Cancelled: <%= @breakdown['cancelled'] || 0 %>
-Completed: <%= @breakdown['completed'] || 0 %>
+<div class="well powerpuffgirl">
+  <%= link_to "Modify Account Data",  edit_user_path(current_user), class: "btn btn-info"%>
+  <%= link_to 'Add item to sell', new_admin_item_path, class: "btn btn-info" %>
+  
+  <h3>Order Statuses</h3>
+  Ordered: <%= @breakdown['ordered'] || 0 %> | 
+  Paid: <%= @breakdown['paid'] || 0 %> | 
+  Cancelled: <%= @breakdown['cancelled'] || 0 %> | 
+  Completed: <%= @breakdown['completed'] || 0 %>
+  <br>
+  <h3>Filter by:</h3>
+  <%= link_to 'Ordered', admin_dashboard_index_path(filter_by: 'ordered'), class: "btn btn-primary" %>
+  <%= link_to 'Paid', admin_dashboard_index_path(filter_by: 'paid'), class: "btn btn-warning"  %>
+  <%= link_to 'Cancelled', admin_dashboard_index_path(filter_by: 'cancelled'), class: "btn btn-danger"  %>
+  <%= link_to 'Completed', admin_dashboard_index_path(filter_by: 'completed'), class: "btn btn-success"  %>
 
-<%= link_to 'Ordered', admin_dashboard_index_path(filter_by: 'ordered') %>
+  <h3>Orders</h3>
+  <% @orders.each do |order| %>
+    <h4><%= link_to "Order #{order.id}", order_path(order) %> - placed <%= order.created_at %></h4>
 
-<%= link_to 'Paid', admin_dashboard_index_path(filter_by: 'paid') %>
+    <% if order.status == 'paid' || order.status == 'ordered' %>
+      <%= button_to "Cancel order", order_path(order, new_status: 'cancelled'), method: 'patch' %>
+    <% end %>
 
-<%= link_to 'Cancelled', admin_dashboard_index_path(filter_by: 'cancelled') %>
+    <% if order.status == 'ordered' %>
+      <%= button_to "Mark as Paid", order_path(order, new_status: 'paid'), method: 'patch' %>
+    <% elsif order.status == 'paid' %>
+      <%= button_to "Mark as Completed", order_path(order, new_status: 'completed'), method: 'patch' %>
+    <% end %>
+    <br>
 
-<%= link_to 'Completed', admin_dashboard_index_path(filter_by: 'completed') %>
-
-<% @orders.each do |order| %>
-  <%= link_to "Order #{order.id}", order_path(order) %>
-
-  <% if order.status == 'paid' || order.status == 'ordered' %>
-    <%= button_to "Cancel order", order_path(order, new_status: 'cancelled'), method: 'patch' %>
   <% end %>
-
-  <% if order.status == 'ordered' %>
-    <%= button_to "Mark as Paid", order_path(order, new_status: 'paid'), method: 'patch' %>
-  <% elsif order.status == 'paid' %>
-    <%= button_to "Mark as Completed", order_path(order, new_status: 'completed'), method: 'patch' %>
-  <% end %>
-
-<% end %>
-<%= link_to "Modify Account Data",  edit_user_path(current_user) %>
-<%= link_to 'Add item to sell', new_admin_item_path %>
+</div>
