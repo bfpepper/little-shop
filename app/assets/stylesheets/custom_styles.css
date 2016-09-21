@@ -1,16 +1,16 @@
 .item-thumbnail {
-   width:100%;
-   padding-bottom: 100%;
-   overflow:hidden;
-   position:relative;
+  width: 300px;
+  height: 300px;
+  overflow:hidden;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
 .item-thumbnail img {
-  position:absolute;
-  width: 350px;
-  height: 350px;
-  border-radius: 5px;
-  border: 2px solid black;
+  min-height: 100%;
+  min-width: 100%;
+  height: auto;
+  width: auto;
 }
 
 body {
