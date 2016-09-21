@@ -1,12 +1,14 @@
 <div class="page-header">
-  All orders for <%= current_user.name %>
+  <h1>All orders for <%= current_user.name %></h1>
 </div>
 
-<table class="table table-striped">
-  <% current_user.orders.each do |order| %>
-    <tr>
-      <td>Order <%= order.id %>: <%= number_to_currency(order.price) %></td>
-      <td><%= link_to "View order", order_path(order) %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="well powerpuffgirl">
+  <table class="table table-striped">
+    <% current_user.orders.each do |order| %>
+      <tr>
+        <td>Order <%= order.id %>: <%= number_to_currency(order.price) %></td>
+        <td><%= link_to "View order", order_path(order) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
