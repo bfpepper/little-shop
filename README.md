@@ -2,7 +2,7 @@
 
 ### TEAM
  - Nate Anderson 
- - Christopher Calaway
+ - Calaway
  - Brendan Dillon
  - Ben Pepper
 
