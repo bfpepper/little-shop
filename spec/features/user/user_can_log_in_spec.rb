@@ -33,7 +33,7 @@ RSpec.feature 'Authenticated user logs in' do
 
     visit login_path
 
-    fill_in 'Username', with: "random"
+    fill_in 'Username', with: 'random'
     fill_in 'Password', with: user.password
     click_button 'Login'
 

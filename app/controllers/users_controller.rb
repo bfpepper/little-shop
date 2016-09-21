@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       redirect_to admin_dashboard_index_path
     elsif current_user.update(user_params)
       redirect_to user_path(current_user)
-    else 
+    else
       render :edit
     end
   end
@@ -39,7 +39,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user)
-          .permit(:id, :name, :phone_number, :username, :password, :password_confirmation)
+    params.require(:user).permit(:id, :name, :phone_number, :username, :password, :password_confirmation)
   end
 end
