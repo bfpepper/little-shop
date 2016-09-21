@@ -16,11 +16,7 @@ class OrdersController < ApplicationController
     if @cart.total == 0
       redirect_to cart_path
     else
-      checkout = Checkout.new(order_params, @cart.contained_items)
-      checkout.create
-      flash[:notice] = 'Order was successfully placed'
-      session[:cart] = nil
-      redirect_to orders_path
+      process_checkout
     end
   end
 
@@ -34,5 +30,13 @@ class OrdersController < ApplicationController
 
   def order_params
     { status: 'ordered', price: @cart.total, user_id: current_user.id }
+  end
+
+  def process_checkout
+    checkout = Checkout.new(order_params, @cart.contained_items)
+    checkout.create
+    flash[:notice] = 'Order was successfully placed'
+    session[:cart] = nil
+    redirect_to orders_path
   end
 end
