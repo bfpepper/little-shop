@@ -6,6 +6,7 @@ module Admin
       if @item.save
         redirect_to item_path(@item)
       else
+        @categories = Category.all
         render :new
       end
     end

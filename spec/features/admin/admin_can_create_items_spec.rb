@@ -31,4 +31,28 @@ RSpec.feature 'Admin user can create a new item' do
   expect(page).to have_content("New Description")
   expect(page).to have_content("10.00")
   end
+  
+  scenario 'Admin can not add new item without attributes' do
+    admin = create(:user, role: 1)
+    category = create(:category)
+
+    visit login_path
+
+    fill_in 'Username', with: admin.username
+    fill_in 'Password', with: admin.password
+
+    click_button 'Login'
+
+    click_link('Add item to sell')
+    
+    fill_in 'Title', with: ''
+    fill_in 'Description', with: 'New Description'
+    fill_in 'Price', with: 10.00
+    page.select category.name, from: 'item[category_id]'
+    fill_in 'Image', with: 'www.example.com'
+
+    click_button("Add Item")
+    
+    expect(page).to have_content("Add a new item that you want to sell")
+  end
 end
