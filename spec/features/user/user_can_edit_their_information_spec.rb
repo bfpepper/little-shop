@@ -19,11 +19,11 @@ RSpec.feature 'User can update their login credentials' do
 
     expect(current_path).to eq(user_path(user))
   end
-  
-  scenario 'they can not update with username blank' do 
+
+  scenario 'they can not update with username blank' do
     user = create(:user)
 
-    visit login_path 
+    visit login_path
 
     fill_in 'Username', with: user.username
     fill_in 'Password', with: user.password

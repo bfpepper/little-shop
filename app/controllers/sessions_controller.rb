@@ -3,21 +3,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if request.env["omniauth.auth"]
-      user = User.from_omniauth(request.env['omniauth.auth'])
-      session[:user_id] = user.id
-      redirect_to dashboard_path
+    user = User.find_by(username: params[:session][:username]) if params[:session]
+    if request.env['omniauth.auth']
+      login_with_omniauth
+    elsif user && user.admin? && user.authenticate(params[:session][:password])
+      login_as_admin(user)
+    elsif user && user.authenticate(params[:session][:password])
+      login_as_default_user(user)
     else
-      user = User.find_by(username: params[:session][:username])
-      if user && user.admin? && user.authenticate(params[:session][:password])
-        session[:user_id] = user.id
-        redirect_to admin_dashboard_index_path
-      elsif user && user.authenticate(params[:session][:password])
-        session[:user_id] = user.id
-        redirect_to dashboard_path
-      else
-        render :new
-      end
+      render :new
     end
   end
 
@@ -25,12 +19,22 @@ class SessionsController < ApplicationController
     session.clear
     redirect_to root_path
   end
-end
 
-def create
-  @user = User.find_or_create_from_auth(request.env['omniauth.auth'])
-  if @user
-    session[:user_id] = @user.id
-    redirect_to playlists_path
+  private
+
+  def login_with_omniauth
+    user = User.from_omniauth(request.env['omniauth.auth'])
+    session[:user_id] = user.id
+    redirect_to dashboard_path
+  end
+
+  def login_as_admin(user)
+    session[:user_id] = user.id
+    redirect_to admin_dashboard_index_path
+  end
+
+  def login_as_default_user(user)
+    session[:user_id] = user.id
+    redirect_to dashboard_path
   end
 end

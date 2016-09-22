@@ -7,8 +7,8 @@
   </div>
 
   <% if @item.retired %>
-  Item Retired
+    Item Retired
   <% else %>
-  <%= button_to "Add to Cart", cart_path(item_id: @item.id) %>
+    <%= button_to "Add to Cart", cart_path(item_id: @item.id) %>
   <% end %>
 </div>

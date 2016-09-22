@@ -4,9 +4,9 @@
 
 <div class="well powerpuffgirl">
   <%= form_for(:session, html: {class: "form-inline"}) do |f|%>
-  <%= f.text_field :username, placeholder: "Username", class: "form-control" %>
-  <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
-  <%= f.submit "Login", class: "btn btn-primary" %>
+    <%= f.text_field :username, placeholder: "Username", class: "form-control" %>
+    <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+    <%= f.submit "Login", class: "btn btn-primary" %>
   <% end %>
 
   <br />
