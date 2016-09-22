@@ -5,7 +5,12 @@ module Admin
         render file: 'public/404.html', layout: false
       elsif !current_user.admin?
         redirect_to dashboard_path
+      else
+        dashboard_setup
       end
+    end
+
+    def dashboard_setup
       @orders = if params[:filter_by]
                   Order.where(status: params[:filter_by])
                 else
