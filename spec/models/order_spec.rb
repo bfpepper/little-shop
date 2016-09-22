@@ -28,13 +28,13 @@ RSpec.describe Order, type: :model do
     user = create(:user_with_orders)
     order = user.orders.first
 
-    expect(user.has_order?(order.id)).to be true
+    expect(user.order?(order.id)).to be true
   end
 
   it 'can confirm an order does not belong to a user' do
     user = create(:user)
     order = create(:order)
 
-    expect(user.has_order?(order.id)).to be false
+    expect(user.order?(order.id)).to be false
   end
 end

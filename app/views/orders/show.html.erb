@@ -5,28 +5,16 @@
 <div class="well powerpuffgirl">
   <table class="table table-hover table-responsive">
     <tr>
-      <td>
-        <h4>Order Status:</h4>
-      </td>
-      <td>
-        <%= @order.status %>
-      </td>
+      <td><h4>Order Status:</h4></td>
+      <td><%= @order.status %></td>
     </tr>
     <tr>
-      <td>
-        <h4>Order Total:</h4>
-      </td>
-      <td>
-        <%= number_to_currency(@order.price) %>
-      </td>
+      <td><h4>Order Total:</h4></td>
+      <td><%= number_to_currency(@order.price) %></td>
     </tr>
     <tr>
-      <td>
-        <h4>Order submitted at:</h4>
-      </td>
-      <td>
-        <%= @order.created_at %>
-      </td>
+      <td><h4>Order submitted at:</h4></td>
+      <td><%= @order.created_at %></td>
     </tr>
   </table>
   <table class="table table-striped">

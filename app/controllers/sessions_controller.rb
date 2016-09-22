@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(username: params[:session][:username]) if params[:session]
-    if request.env["omniauth.auth"]
+    if request.env['omniauth.auth']
       login_with_omniauth
     elsif user && user.admin? && user.authenticate(params[:session][:password])
       login_as_admin(user)
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   private
 
   def login_with_omniauth
-    user = User.from_omniauth(request.env["omniauth.auth"])
+    user = User.from_omniauth(request.env['omniauth.auth'])
     session[:user_id] = user.id
     redirect_to dashboard_path
   end
