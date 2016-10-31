@@ -25,4 +25,5 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index, :edit]
     resources :items, only: [:new, :create]
   end
+  
 end
